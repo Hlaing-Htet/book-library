@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "apple",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, assumenda. Excepturi, suscipit quos hic error reiciendis quam qui esse. Inventore aut unde culpa necessitatibus sunt quasi consequatur corporis architecto assumenda.",
+    "price": 123,
+    "category": "something",
+    "img": "url",
+    "discount": "5%",
+    "createdAt": "date-time"
+  }
+]

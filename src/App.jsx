@@ -1,34 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import SliteBtn from "./components/SliteBtn";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  };
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <h2> Single Item</h2>
+      <div className=" w-2/3 mx-auto">
+        <Slider {...settings}>
+          <div className=" bg-orange-500  h-52 text-center  p-5">
+            <div className=" bg-slate-300 h-full">
+              <h1>1</h1>
+            </div>
+          </div>
+          <div className=" bg-orange-500 h-52 text-center  p-5">
+            <h3>2</h3>
+          </div>
+          <div className=" bg-orange-500 h-52 text-center  p-5">
+            <h3>3</h3>
+          </div>
+          <div className=" bg-orange-500 h-52 text-center  p-5">
+            <h3>4</h3>
+          </div>
+          <div className=" bg-orange-500 h-52 text-center  p-5">
+            <h3>5</h3>
+          </div>
+          <div className=" bg-orange-500 h-52 text-center  p-5">
+            <h3>6</h3>
+          </div>
+        </Slider>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
-  )
+  );
+};
+
+export default App;
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "red",
+      }}
+      onClick={onClick}
+    />
+  );
 }
 
-export default App
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "green",
+      }}
+      onClick={onClick}
+    />
+  );
+}
