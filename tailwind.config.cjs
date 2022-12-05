@@ -8,6 +8,10 @@ module.exports = {
       background_color: "#F8F9FA",
       background_gray_color: "#DEE2E6",
     },
+    fontFamily: {
+      sans: ["Roboto Condensed", "sans-serif"],
+      title: ["Montserrat", "sans-serif"],
+    },
 
     extend: {},
   },
@@ -17,7 +21,6 @@ module.exports = {
         mytheme: {
           primary: "#CA6702",
           secondary: "#212529",
-
           success: "#1B6800",
           danger: "#951C1C",
         },
