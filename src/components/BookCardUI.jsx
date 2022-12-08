@@ -10,20 +10,31 @@ const variants = {
   hover: {
     x: 0,
     scale: [1.1, 1],
-    opacity: [0, 1],
+    rotateZ: [10, -10, 0],
+    opacity: [0.5, 1],
   },
   initial: {
     x: 0,
     scale: 1,
-    opacity: [0, 1],
+    rotateZ: [10, -10, 0],
+    opacity: [0.5, 1],
   },
 };
 
-const BookCardUI = ({ book: { image, title, price, discount } }) => {
+const BookCardUI = ({ book: { attributes } }) => {
+  const {
+    title,
+    price,
+    discount,
+    image: { data },
+  } = attributes;
+
+  const url = `http://localhost:1337${data[0].attributes.url}`;
+
   const [isHovered, setIsHovered] = useState(false);
   const bookHover = useRef(null);
   const bookLeave = useRef(null);
-  const discountPrice = price - (price * discount) / 100;
+  const discountPrice = (price - (price * discount) / 100).toFixed(2);
   const handleMouseEnter = () => {
     bookHover.current.className = "hidden";
     bookLeave.current.className = "block";
@@ -36,16 +47,20 @@ const BookCardUI = ({ book: { image, title, price, discount } }) => {
   };
   return (
     <div
-      className=" col-span-1 bg-background_color"
+      className=" col-span-1 bg-background_color "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className=" relative">
-        <img src={image} className=" w-full" alt="" />
+      <motion.div
+        variants={variants}
+        animate={isHovered ? "hover" : "initial"}
+        className=" relative"
+      >
+        <img src={url} className=" w-full object-cover h-96" alt="" />
         <div className=" bg-primary absolute top-0 left-0 p-2">
           <span className=" text-sm">discount</span> <span>{discount}%</span>
         </div>
-      </div>
+      </motion.div>
       <motion.div
         variants={variants}
         animate={isHovered ? "hover" : "initial"}
@@ -75,7 +90,7 @@ const BookCardUI = ({ book: { image, title, price, discount } }) => {
             <RiShoppingBasketLine className=" text-xl" />
           </button>
         </div>
-        <div className=" flex justify-center gap-1 mb-2">
+        <div className=" flex justify-center gap-1 ">
           <AiOutlineStar className=" text-primary " />
           <AiOutlineStar className=" text-primary " />
           <AiOutlineStar className=" text-primary " />
