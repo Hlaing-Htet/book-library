@@ -9,7 +9,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
 const NavBar = () => {
   return (
-    <nav className=" sticky top-0 bg-background_gray_color">
+    <nav className=" fixed w-full top-0 bg-background_gray_color z-10">
       <div className=" container mx-auto">
         <div className=" flex items-center justify-between">
           <div className="">

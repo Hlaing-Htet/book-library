@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import ShopList from "./components/ShopList";
 import AboutPage from "./pages/AboutPage";
 import BookMarkPage from "./pages/BookMarkPage";
 import HomePage from "./pages/HomePage";
@@ -13,7 +14,9 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop" element={<ShopPage />}>
+          <Route path=":name" element={<ShopList />} />
+        </Route>
         <Route path="/about" element={<AboutPage />} />
         <Route path="/bookmark" element={<BookMarkPage />} />
         <Route path="/profile" element={<ProfilePage />} />
