@@ -60,15 +60,11 @@ const NavBar = () => {
 
             {/* Shopping Btn */}
             <div className="indicator">
-              <span className="indicator-item badge badge-primary">2</span>
-              <button className=" text-text_color">
-                <FaShoppingCart className=" text-2xl" />
-              </button>
-            </div>
-            {/* User Profile */}
-            <div>
-              <NavLink to={"/profile"}>
-                <BsFillPersonFill className=" text-text_color text-2xl" />
+              <NavLink to={"/checkout"} className="h-6">
+                <span className="indicator-item badge badge-primary">2</span>
+                <button className=" text-text_color">
+                  <FaShoppingCart className=" text-2xl" />
+                </button>
               </NavLink>
             </div>
           </div>

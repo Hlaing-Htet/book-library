@@ -4,8 +4,9 @@ import NavBar from "./components/NavBar";
 import ShopList from "./components/ShopList";
 import AboutPage from "./pages/AboutPage";
 import BookMarkPage from "./pages/BookMarkPage";
+import CheckOutPage from "./pages/CheckOutPage";
 import HomePage from "./pages/HomePage";
-import ProfilePage from "./pages/ProfilePage";
+
 import ShopPage from "./pages/ShopPage";
 import SingleBookPage from "./pages/SingleBookPage";
 
@@ -23,7 +24,7 @@ const App = () => {
         </Route>
         <Route path="/about" element={<AboutPage />} />
         <Route path="/bookmark" element={<BookMarkPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
     </BrowserRouter>
   );

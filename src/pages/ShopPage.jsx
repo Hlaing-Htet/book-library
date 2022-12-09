@@ -11,7 +11,7 @@ const ShopPage = () => {
     <div className=" bg-background_color h-screen pt-16 overflow-auto">
       <div className=" h-full grid grid-cols-5">
         <div className=" col-span-1 h-full bg-background_color border-r">
-          <h1 className=" text-center uppercase text-xl p-3 underline text-text_color font-title">
+          <h1 className=" text-center uppercase text-xl mt-5 font-bold text-text_color font-title">
             categories
           </h1>
           <div className=" p-2">
