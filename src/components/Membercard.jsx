@@ -5,22 +5,24 @@ import { CiFacebook } from "react-icons/ci";
 import { VscGithub } from "react-icons/vsc";
 import { FiTwitter } from "react-icons/fi";
 import Modal from "./Modal";
+
 const Membercard = () => {
   const [memberinfo, setMemberinfo] = useState(memberInfodata);
   const [show, setShow] = useState(false);
-
+  const [selectedMember, setSelectedMember] = useState();
   return (
     <>
-      <div className="container mx-auto flex flex-wrap gap-10 justify-center mt-8 leading-8">
-        <div
-          className="card"
-          onClick={() => {
-            setShow(true);
-            setMemberinfo(member);
-          }}
-        >
+      <div>
+        <div className="container mx-auto flex flex-wrap gap-10 justify-center mt-8 leading-8">
           {memberinfo.map((member) => (
-            <div className="shadow-xl text-center hover:scale-105 ">
+            <div
+              className="shadow-xl text-center hover:scale-105 "
+              key={member.id}
+              onClick={() => {
+                setShow(true);
+                setSelectedMember(member);
+              }}
+            >
               <figure className="px-10 pt-10">
                 <img src={member.img} className=" rounded-xl h-64 " />
               </figure>
@@ -45,7 +47,12 @@ const Membercard = () => {
           ))}
         </div>
       </div>
-      <Modal show={show} member={memberinfo} onClose={() => setShow(false)} />
+
+      <Modal
+        show={show}
+        selectedMember={selectedMember}
+        onClose={() => setShow(false)}
+      />
     </>
   );
 };
