@@ -11,7 +11,10 @@ export default function GetCategories() {
 
     axios
       .get("http://localhost:1337/api/categories")
-      .then(({ data }) => setResponse(data.data))
+      .then(({ data }) => {
+        setResponse(data.data);
+        setLoading(false);
+      })
       .catch((error) => setError(error));
   }, []);
   return { response, loading };

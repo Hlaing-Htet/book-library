@@ -60,7 +60,7 @@ const NavBar = () => {
 
             {/* Shopping Btn */}
             <div className="indicator">
-              <span className="indicator-item  badge-primary"></span>
+              <span className="indicator-item badge badge-primary">2</span>
               <button className=" text-text_color">
                 <FaShoppingCart className=" text-2xl" />
               </button>

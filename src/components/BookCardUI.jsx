@@ -1,34 +1,39 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { BsEye } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
+import { NavLink, useLocation } from "react-router-dom";
 
 const variants = {
   hover: {
     x: 0,
-    scale: [1.1, 1],
-    rotateZ: [10, -10, 0],
+    scale: [1, 1.1, 1],
+    // rotateZ: [10, -10, 0],
     opacity: [0.5, 1],
   },
   initial: {
     x: 0,
     scale: 1,
-    rotateZ: [10, -10, 0],
+    // rotateZ: [10, -10, 0],
     opacity: [0.5, 1],
   },
 };
 
-const BookCardUI = ({ book: { attributes } }) => {
+const BookCardUI = ({ book: { attributes, id }, handleClick }) => {
+  const location = useLocation();
+
   const {
     title,
     price,
     discount,
     image: { data },
+    categories,
   } = attributes;
-
+  const category = categories.data[0].attributes.name;
   const url = `http://localhost:1337${data[0].attributes.url}`;
 
   const [isHovered, setIsHovered] = useState(false);
@@ -45,6 +50,7 @@ const BookCardUI = ({ book: { attributes } }) => {
     bookLeave.current.className = "hidden";
     setIsHovered(false);
   };
+
   return (
     <div
       className=" col-span-1 bg-background_color "
@@ -58,7 +64,8 @@ const BookCardUI = ({ book: { attributes } }) => {
       >
         <img src={url} className=" w-full object-cover h-96" alt="" />
         <div className=" bg-primary absolute top-0 left-0 p-2">
-          <span className=" text-sm">discount</span> <span>{discount}%</span>
+          <span className=" text-sm">discount</span>{" "}
+          <span>{!discount ? 0 : discount}%</span>
         </div>
       </motion.div>
       <motion.div
@@ -80,12 +87,18 @@ const BookCardUI = ({ book: { attributes } }) => {
         className="hidden"
       >
         <div className=" flex justify-center gap-2 my-3">
-          <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
-            <BsEye className=" text-xl" />
-          </button>
+          <NavLink
+            to={location.pathname == "/" ? `shop/${category}/${id}` : `${id}`}
+          >
+            <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
+              <BsEye className=" text-xl" />
+            </button>
+          </NavLink>
+
           <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
             <BsBookmarkPlus className=" text-xl" />
           </button>
+
           <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
             <RiShoppingBasketLine className=" text-xl" />
           </button>
