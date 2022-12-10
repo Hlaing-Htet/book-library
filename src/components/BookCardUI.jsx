@@ -23,7 +23,7 @@ const variants = {
   },
 };
 
-const BookCardUI = ({ book: { attributes, id }, handleClick }) => {
+const BookCardUI = ({ book: { attributes, id } }) => {
   const location = useLocation();
 
   const {
