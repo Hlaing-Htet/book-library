@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const AboutPage = () => {
   return (
-    <>
+    <div className=" bg-background_color h-screen pt-16 overflow-auto">
       <div
         className="hero h-96 "
         style={{ backgroundImage: `url("src/assets/aboutpageimage.png") ` }}
@@ -37,7 +37,7 @@ const AboutPage = () => {
       </h1>
       <Members />
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -13,10 +13,10 @@ const Membercard = () => {
   return (
     <>
       <div>
-        <div className="container mx-auto flex flex-wrap gap-10 justify-center mt-8 leading-8">
+        <div className="container mx-auto mb-20 flex flex-wrap gap-10 justify-center mt-8 leading-8">
           {memberinfo.map((member) => (
             <div
-              className="shadow-xl text-center hover:scale-105 "
+              className="shadow-xl text-center hover:scale-105 transition-all"
               key={member.id}
               onClick={() => {
                 setShow(true);

@@ -8,11 +8,11 @@ import { AiFillYoutube } from "react-icons/ai";
 const Footer = () => {
   return (
     <>
-      <footer className=" flex flex-col mt-auto bg-background_gray_color h-50 ">
+      <footer className=" flex flex-col mt-auto bg-background_gray_color  ">
         <figure className="flex justify-center w-full">
           <img src="src/assets/Logo.svg" className="w-20" />
         </figure>
-        <p className="font-sans text-center text-text_color">
+        <p className="font-sans text-center text-text_color opacity-60">
           There are many variations of passages of Lorem Ipsum available, but
           the majority <br /> have suffered duskam alteration variations of
           passages
@@ -32,7 +32,7 @@ const Footer = () => {
           <span>Blog</span>
           <span>About</span>
         </div>
-        <div className=" mt-auto bg-text_color h-8 text-sm  ">
+        <div className=" mt-auto bg-text_color p-3 text-sm  ">
           <p className=" container mx-auto text-primary ">
             <span className="">@ 2022 All Rights Reserved</span>
             <span className="ml-2 ">Book Library</span>
