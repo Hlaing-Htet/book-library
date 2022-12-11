@@ -5,7 +5,7 @@ import BookCardUI from "../components/BookCardUI";
 import GetBooks from "../services/GetBooks";
 const HomePage = () => {
   const { response, loading } = GetBooks();
-  console.log(response);
+  // console.log(response);
   if (loading) return null;
 
   return (

@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-
+import { NavLink, useLocation } from "react-router-dom";
+import { useBookMarkContext } from "../hooks/useBookMarkContext";
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { BsEye } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
-import { NavLink, useLocation } from "react-router-dom";
 
 const variants = {
   hover: {
@@ -24,6 +24,12 @@ const variants = {
 };
 
 const BookCardUI = ({ book: { attributes, id } }) => {
+  const { books, handleBookMarkAdd } = useBookMarkContext();
+
+  const markedBook = books.filter((book) => {
+    return book.id === id;
+  });
+
   const location = useLocation();
 
   const {
@@ -95,7 +101,14 @@ const BookCardUI = ({ book: { attributes, id } }) => {
             </button>
           </NavLink>
 
-          <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
+          <button
+            onClick={() => {
+              markedBook.length === 0 && handleBookMarkAdd(id);
+            }}
+            className={`btn btn-circle btn-secondary btn-sm ${
+              markedBook.length > 0 ? "btn-primary" : "btn-outline"
+            }`}
+          >
             <BsBookmarkPlus className=" text-xl" />
           </button>
 
