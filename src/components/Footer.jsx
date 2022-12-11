@@ -8,7 +8,7 @@ import { AiFillYoutube } from "react-icons/ai";
 const Footer = () => {
   return (
     <>
-      <footer className=" bg-background_gray_color h-50 mt-20">
+      <footer className=" flex flex-col mt-auto bg-background_gray_color h-50 ">
         <figure className="flex justify-center w-full">
           <img src="src/assets/Logo.svg" className="w-20" />
         </figure>
@@ -32,7 +32,7 @@ const Footer = () => {
           <span>Blog</span>
           <span>About</span>
         </div>
-        <div className=" bg-text_color h-8 text-sm  mb-10 ">
+        <div className=" mt-auto bg-text_color h-8 text-sm  ">
           <p className=" container mx-auto text-primary ">
             <span className="">@ 2022 All Rights Reserved</span>
             <span className="ml-2 ">Book Library</span>
