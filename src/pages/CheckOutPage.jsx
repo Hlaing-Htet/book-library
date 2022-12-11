@@ -9,7 +9,8 @@ const CheckOutPage = () => {
 		selectedBook,
 		handleBookCart,
 		handleRemoveBook,
-		bookCount,
+		handleBookCount,
+		handleRemoveBookCount,
 	} = useContext(BookContext);
 
 	const total = selectedBook.reduce(
@@ -17,8 +18,7 @@ const CheckOutPage = () => {
 			accumulator + currentValue?.attributes?.price * currentValue.quantity,
 		0
 	);
-	console.log("total", total);
-	console.log("Selected", selectedBook);
+
 	return (
 		<>
 			<div>
@@ -43,7 +43,7 @@ const CheckOutPage = () => {
 					{selectedBook.map((selectedItem) => (
 						<div
 							key={selectedItem?.id}
-							className="container flex justify-between mt-10">
+							className="container flex justify-between mt-10 min-h-fit">
 							<figure className="basis-36 container max-h-48 max-w-24 ml-5">
 								<img
 									src={
@@ -56,12 +56,16 @@ const CheckOutPage = () => {
 							<div className="basis-48 mt-18">
 								<button
 									className="btn btn-primary ml-10"
-									onClick={() => handleBookCart(selectedItem)}>
+									onClick={() => {
+										handleBookCart(selectedItem), handleBookCount();
+									}}>
 									+
 								</button>
 								<button
 									className="btn btn-primary ml-5"
-									onClick={() => handleRemoveBook(selectedItem)}>
+									onClick={() => {
+										handleRemoveBook(selectedItem), handleRemoveBookCount();
+									}}>
 									-
 								</button>
 							</div>
@@ -77,7 +81,7 @@ const CheckOutPage = () => {
 									Total -{" "}
 								</h3>
 								<p className="text-right text-2xl mr-5 text-secondary">
-									${total}
+									${total.toFixed(2)}
 								</p>
 							</div>
 							<div className="flex  justify-center">

@@ -24,6 +24,9 @@ const App = () => {
 	const handleBookCount = () => {
 		setBookCount(bookCount + 1);
 	};
+	const handleRemoveBookCount = () => {
+		setBookCount(bookCount - 1);
+	};
 
 	const handleBookCart = (item) => {
 		const remainingProduct = selectedBook.find(
@@ -67,6 +70,7 @@ const App = () => {
 		handleBookCount,
 		handleBookCart,
 		handleRemoveBook,
+		handleRemoveBookCount,
 		bookCount,
 	};
 
