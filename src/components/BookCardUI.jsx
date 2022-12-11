@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { NavLink, useLocation } from "react-router-dom";
+import { Navigate, NavLink, useLocation } from "react-router-dom";
 import { useBookMarkContext } from "../hooks/useBookMarkContext";
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
@@ -24,7 +24,8 @@ const variants = {
 };
 
 const BookCardUI = ({ book: { attributes, id } }) => {
-  const { books, handleBookMarkAdd } = useBookMarkContext();
+  const { books, handleBookMarkAdd, handleBookMarkDelete } =
+    useBookMarkContext();
 
   const markedBook = books.filter((book) => {
     return book.id === id;
@@ -94,7 +95,14 @@ const BookCardUI = ({ book: { attributes, id } }) => {
       >
         <div className=" flex justify-center gap-2 my-3">
           <NavLink
-            to={location.pathname == "/" ? `shop/${category}/${id}` : `${id}`}
+            // to={location.pathname == "/" ? `shop/${category}/${id}` : `${id}`}
+            to={
+              location.pathname == "/"
+                ? `shop/${category}/${id}`
+                : location.pathname == "/shop"
+                ? `${id}`
+                : `${(location.pathname = `/shop/${category}/${id}`)}`
+            }
           >
             <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
               <BsEye className=" text-xl" />
@@ -103,7 +111,9 @@ const BookCardUI = ({ book: { attributes, id } }) => {
 
           <button
             onClick={() => {
-              markedBook.length === 0 && handleBookMarkAdd(id);
+              markedBook.length === 0
+                ? handleBookMarkAdd(id)
+                : handleBookMarkDelete(id);
             }}
             className={`btn btn-circle btn-secondary btn-sm ${
               markedBook.length > 0 ? "btn-primary" : "btn-outline"
