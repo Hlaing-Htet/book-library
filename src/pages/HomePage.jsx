@@ -5,12 +5,14 @@ import { BookContext } from "../App";
 import GetBooks from "../services/GetBooks";
 
 const HomePage = () => {
+
 	const { bookCount, handleBookCount, handleBookCart } =
 		useContext(BookContext);
 
 	const { response, loading } = GetBooks();
 	console.log(response);
 	if (loading) return null;
+
 
 	return (
 		<div className=" bg-background_color h-screen pt-16 overflow-auto">

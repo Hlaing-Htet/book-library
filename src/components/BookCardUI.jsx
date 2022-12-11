@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-
+import { Navigate, NavLink, useLocation } from "react-router-dom";
+import { useBookMarkContext } from "../hooks/useBookMarkContext";
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { BsEye } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
-import { NavLink, useLocation } from "react-router-dom";
 
 const variants = {
 	hover: {
@@ -23,15 +23,18 @@ const variants = {
 	},
 };
 
-const BookCardUI = ({
-	book: { attributes, id },
-	book,
-	handleClick,
-	bookCount,
-	handleBookCount,
-	handleBookCart,
-}) => {
-	const location = useLocation();
+
+const BookCardUI = ({ book: { attributes, id } }) => {
+  const { books, handleBookMarkAdd, handleBookMarkDelete } =
+    useBookMarkContext();
+
+  const markedBook = books.filter((book) => {
+    return book.id === id;
+  });
+
+  const location = useLocation();
+
+
 
 	const {
 		title,
@@ -58,48 +61,72 @@ const BookCardUI = ({
 		setIsHovered(false);
 	};
 
-	return (
-		<div
-			className=" col-span-1 bg-background_color "
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}>
-			<motion.div
-				variants={variants}
-				animate={isHovered ? "hover" : "initial"}
-				className=" relative">
-				<img src={url} className=" w-full object-cover h-96" alt="" />
-				<div className=" bg-primary absolute top-0 left-0 p-2">
-					<span className=" text-sm">discount</span>{" "}
-					<span>{!discount ? 0 : discount}%</span>
-				</div>
-			</motion.div>
-			<motion.div
-				variants={variants}
-				animate={isHovered ? "hover" : "initial"}
-				ref={bookHover}>
-				<p className=" text-center text-primary mt-3">{title}</p>
-				<div className=" flex justify-center gap-10 my-2">
-					<span className=" text-primary">${discountPrice}</span>
-					<span className=" text-text_color line-through">${price}</span>
-				</div>
-			</motion.div>
-			{/* While Hover */}
-			<motion.div
-				variants={variants}
-				animate={isHovered ? "hover" : "initial"}
-				ref={bookLeave}
-				className="hidden">
-				<div className=" flex justify-center gap-2 my-3">
-					<NavLink
-						to={location.pathname == "/" ? `shop/${category}/${id}` : `${id}`}>
-						<button className=" btn btn-circle btn-secondary btn-sm btn-outline">
-							<BsEye className=" text-xl" />
-						</button>
-					</NavLink>
 
-					<button className=" btn btn-circle btn-secondary btn-sm btn-outline">
-						<BsBookmarkPlus className=" text-xl" />
-					</button>
+  return (
+    <div
+      className=" col-span-1 bg-background_color "
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <motion.div
+        variants={variants}
+        animate={isHovered ? "hover" : "initial"}
+        className=" relative"
+      >
+        <img src={url} className=" w-full object-cover h-96" alt="" />
+        <div className=" bg-primary absolute top-0 left-0 p-2">
+          <span className=" text-sm">discount</span>{" "}
+          <span>{!discount ? 0 : discount}%</span>
+        </div>
+      </motion.div>
+      <motion.div
+        variants={variants}
+        animate={isHovered ? "hover" : "initial"}
+        ref={bookHover}
+      >
+        <p className=" text-center text-primary mt-3">{title}</p>
+        <div className=" flex justify-center gap-10 my-2">
+          <span className=" text-primary">${discountPrice}</span>
+          <span className=" text-text_color line-through">${price}</span>
+        </div>
+      </motion.div>
+      {/* While Hover */}
+      <motion.div
+        variants={variants}
+        animate={isHovered ? "hover" : "initial"}
+        ref={bookLeave}
+        className="hidden"
+      >
+        <div className=" flex justify-center gap-2 my-3">
+          <NavLink
+            // to={location.pathname == "/" ? `shop/${category}/${id}` : `${id}`}
+            to={
+              location.pathname == "/"
+                ? `shop/${category}/${id}`
+                : location.pathname == "/shop"
+                ? `${id}`
+                : `${(location.pathname = `/shop/${category}/${id}`)}`
+            }
+          >
+            <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
+              <BsEye className=" text-xl" />
+            </button>
+          </NavLink>
+
+          <button
+            onClick={() => {
+              markedBook.length === 0
+                ? handleBookMarkAdd(id)
+                : handleBookMarkDelete(id);
+            }}
+            className={`btn btn-circle btn-secondary btn-sm ${
+              markedBook.length > 0 ? "btn-primary" : "btn-outline"
+            }`}
+          >
+            <BsBookmarkPlus className=" text-xl" />
+          </button>
+
+	
 
 					<button
 						className=" btn btn-circle btn-secondary btn-sm btn-outline"
