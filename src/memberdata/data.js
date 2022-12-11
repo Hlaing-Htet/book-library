@@ -2,10 +2,10 @@ export const memberInfodata = [
   {
     id: 1,
     img: "src/assets/man.jpg",
-    name: "Ngwe Thawtar Tun",
-    age: "24",
+    name: "Hlaing Htet",
+    age: "18",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum cumque dolor, voluptas nihil quos ipsam pariatur deleniti vero maxime aperiam at nobis accusamus vel, fugiat ut tempore, eveniet nostrum!.",
 
     email: " nwaynway288781@gmail.com",
     work: "Online Shop,Accounting",
@@ -13,10 +13,10 @@ export const memberInfodata = [
   {
     id: 2,
     img: "src/assets/man.jpg",
-    name: "DD",
+    name: "Wendy",
     age: "24",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum cumque dolor, voluptas nihil quos ipsam pariatur deleniti vero maxime aperiam at nobis accusamus vel, fugiat ut tempore, eveniet nostrum!",
 
     email: " nwaynway288781@gmail.com",
     work: "Online Shop,Accounting",
@@ -24,10 +24,10 @@ export const memberInfodata = [
   {
     id: 3,
     img: "src/assets/man.jpg",
-    name: "Cc",
+    name: "Mya Pwint",
     age: "24",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum cumque dolor, voluptas nihil quos ipsam pariatur deleniti vero maxime aperiam at nobis accusamus vel, fugiat ut tempore, eveniet nostrum!",
 
     email: " nwaynway288781@gmail.com",
     work: "Online Shop,Accounting",
@@ -35,10 +35,10 @@ export const memberInfodata = [
   {
     id: 4,
     img: "src/assets/man.jpg",
-    name: "Aa",
+    name: "Aung Khant Soe",
     age: "24",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum cumque dolor, voluptas nihil quos ipsam pariatur deleniti vero maxime aperiam at nobis accusamus vel, fugiat ut tempore, eveniet nostrum!",
 
     email: " nwaynway288781@gmail.com",
     work: "Online Shop,Accounting",
@@ -46,10 +46,10 @@ export const memberInfodata = [
   {
     id: 5,
     img: "src/assets/man.jpg",
-    name: "BB",
+    name: "Ngwe Thawtar Tun",
     age: "24",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum cumque dolor, voluptas nihil quos ipsam pariatur deleniti vero maxime aperiam at nobis accusamus vel, fugiat ut tempore, eveniet nostrum!",
 
     email: " nwaynway288781@gmail.com",
     work: "Online Shop,Accounting",
@@ -60,7 +60,7 @@ export const memberInfodata = [
     name: "Ngwe Thawtar Tun",
     age: "24",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illum cumque dolor, voluptas nihil quos ipsam pariatur deleniti vero maxime aperiam at nobis accusamus vel, fugiat ut tempore, eveniet nostrum!",
 
     email: " nwaynway288781@gmail.com",
     work: "Online Shop,Accounting",

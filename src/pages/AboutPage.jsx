@@ -1,5 +1,5 @@
 import React from "react";
-import Members from "../components/Membercard";
+import Members from "../components/Member";
 import Footer from "../components/Footer";
 import Heroimage from "../assets/aboutpageimage.png";
 
@@ -14,8 +14,9 @@ const AboutPage = () => {
           <figure>
             <img src={Heroimage} />
           </figure>
-          <p className="absolute top-1/2 left-1/2 -translate-x-1/2 text-background_color font-title text-2xl font-bold ">
-            Read Free Library Books and Download Free.
+          <p className="absolute  left-1/2 -translate-x-1/2 text-background_color font-title text-2xl font-bold text-center top-48 ">
+            Read Free Library <br />
+            Books and Download Free.
           </p>
         </div>
         <div className="text-center mt-12 h-56">
