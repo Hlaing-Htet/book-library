@@ -9,19 +9,20 @@ import { BsEye } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
 
 const variants = {
-  hover: {
-    x: 0,
-    scale: [1, 1.1, 1],
-    // rotateZ: [10, -10, 0],
-    opacity: [0.5, 1],
-  },
-  initial: {
-    x: 0,
-    scale: 1,
-    // rotateZ: [10, -10, 0],
-    opacity: [0.5, 1],
-  },
+	hover: {
+		x: 0,
+		scale: [1, 1.1, 1],
+		// rotateZ: [10, -10, 0],
+		opacity: [0.5, 1],
+	},
+	initial: {
+		x: 0,
+		scale: 1,
+		// rotateZ: [10, -10, 0],
+		opacity: [0.5, 1],
+	},
 };
+
 
 const BookCardUI = ({ book: { attributes, id } }) => {
   const { books, handleBookMarkAdd, handleBookMarkDelete } =
@@ -33,30 +34,33 @@ const BookCardUI = ({ book: { attributes, id } }) => {
 
   const location = useLocation();
 
-  const {
-    title,
-    price,
-    discount,
-    image: { data },
-    categories,
-  } = attributes;
-  const category = categories.data[0].attributes.name;
-  const url = `http://localhost:1337${data[0].attributes.url}`;
 
-  const [isHovered, setIsHovered] = useState(false);
-  const bookHover = useRef(null);
-  const bookLeave = useRef(null);
-  const discountPrice = (price - (price * discount) / 100).toFixed(2);
-  const handleMouseEnter = () => {
-    bookHover.current.className = "hidden";
-    bookLeave.current.className = "block";
-    setIsHovered(true);
-  };
-  const handleMouseLeave = () => {
-    bookHover.current.className = "block";
-    bookLeave.current.className = "hidden";
-    setIsHovered(false);
-  };
+
+	const {
+		title,
+		price,
+		discount,
+		image: { data },
+		categories,
+	} = attributes;
+	const category = categories.data[0].attributes.name;
+	const url = `http://localhost:1337${data[0].attributes.url}`;
+
+	const [isHovered, setIsHovered] = useState(false);
+	const bookHover = useRef(null);
+	const bookLeave = useRef(null);
+	const discountPrice = (price - (price * discount) / 100).toFixed(2);
+	const handleMouseEnter = () => {
+		bookHover.current.className = "hidden";
+		bookLeave.current.className = "block";
+		setIsHovered(true);
+	};
+	const handleMouseLeave = () => {
+		bookHover.current.className = "block";
+		bookLeave.current.className = "hidden";
+		setIsHovered(false);
+	};
+
 
   return (
     <div
@@ -122,20 +126,26 @@ const BookCardUI = ({ book: { attributes, id } }) => {
             <BsBookmarkPlus className=" text-xl" />
           </button>
 
-          <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
-            <RiShoppingBasketLine className=" text-xl" />
-          </button>
-        </div>
-        <div className=" flex justify-center gap-1 ">
-          <AiOutlineStar className=" text-primary " />
-          <AiOutlineStar className=" text-primary " />
-          <AiOutlineStar className=" text-primary " />
-          <AiOutlineStar className=" text-primary " />
-          <AiOutlineStar className=" text-primary " />
-        </div>
-      </motion.div>
-    </div>
-  );
+	
+
+					<button
+						className=" btn btn-circle btn-secondary btn-sm btn-outline"
+						onClick={() => {
+							handleBookCount(), handleBookCart(book);
+						}}>
+						<RiShoppingBasketLine className=" text-xl" />
+					</button>
+				</div>
+				<div className=" flex justify-center gap-1 ">
+					<AiOutlineStar className=" text-primary " />
+					<AiOutlineStar className=" text-primary " />
+					<AiOutlineStar className=" text-primary " />
+					<AiOutlineStar className=" text-primary " />
+					<AiOutlineStar className=" text-primary " />
+				</div>
+			</motion.div>
+		</div>
+	);
 };
 
 export default BookCardUI;
