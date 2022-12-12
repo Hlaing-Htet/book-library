@@ -2,6 +2,7 @@ import React from "react";
 import { BsFillInboxFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import BookCardUI from "../components/BookCardUI";
+import Footer from "../components/Footer";
 //hook
 import { useBookMarkContext } from "../hooks/useBookMarkContext";
 //services
@@ -19,9 +20,9 @@ const BookMarkPage = () => {
 
   console.log(books);
   return (
-    <div className=" bg-background_color h-screen pt-16 overflow-auto">
+    <div className=" flex flex-col bg-background_color h-screen pt-16 overflow-auto">
       {books.length === 0 ? (
-        <div className="card justify-center w-auto min-h-screen">
+        <div className="card justify-center w-auto ">
           <div className="card-body items-center text-center">
             <h2 className="card-title">
               <BsFillInboxFill size={100} className="text-primary" />
@@ -41,6 +42,7 @@ const BookMarkPage = () => {
           ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 };

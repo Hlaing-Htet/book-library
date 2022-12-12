@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 //image
 import Logo from "../assets/Logo.svg";
 
 //icons
-import { BiSearchAlt2 } from "react-icons/bi";
+
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 //hook
@@ -48,10 +48,6 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className="flex items-center  gap-5">
-            {/* Search Btn */}
-            <div>
-              <BiSearchAlt2 className=" text-text_color text-2xl" />
-            </div>
             {/* BookMark Btn */}
             <div className="indicator ">
               <NavLink to={"/bookmark"} className="h-6">
