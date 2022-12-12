@@ -48,22 +48,22 @@ const CheckOutPage = () => {
         {selectedBook.map((selectedItem) => (
           <div
             key={selectedItem?.id}
-            className=" w-1/2 mx-auto grid grid-cols-3 items-center mb-20 p-8 justify-between border relative"
+            className=" md:w-2/3 lg:w-1/2 mx-auto grid grid-cols-3 items-center mb-20 md:mb-24 md:p-5 lg:p-8 justify-between border relative"
           >
-            <figure className=" -top-2/3 left-2  absolute">
+            <figure className=" bottom-full left-1/2 -translate-x-1/2 md:translate-x-0  md:-top-20 md:left-2  absolute">
               <img
                 src={`http://localhost:1337${selectedItem.attributes.image.data[0].attributes.url}`}
                 // src = `http://localhost:1337${data[0].attributes.url}`
                 alt="a"
-                className=" h-24 w-24 object-fill"
+                className="h-16 md:h-24 w-16 md:w-24 object-fill"
               />
             </figure>
-            <div className=" col-span-1 text-text_color text-xl">
+            <div className=" col-span-1 text-text_color md:text-xl p-3">
               {selectedItem.attributes.title}
             </div>
-            <div className=" col-span-1 mt-18">
+            <div className=" col-span-1 p-3 flex gap-5 justify-center">
               <button
-                className="btn btn-primary ml-10"
+                className="btn btn-primary"
                 onClick={() => {
                   handleBookCart(selectedItem), handleBookCount();
                 }}
@@ -71,7 +71,7 @@ const CheckOutPage = () => {
                 +
               </button>
               <button
-                className="btn btn-primary ml-5"
+                className="btn btn-primary "
                 onClick={() => {
                   handleRemoveBook(selectedItem), handleRemoveBookCount();
                 }}
@@ -79,21 +79,21 @@ const CheckOutPage = () => {
                 -
               </button>
             </div>
-            <p className=" col-span-1 text-end  text-xl text-secondary ">
+            <p className=" col-span-1 text-end  p-3 md:text-xl text-secondary ">
               {selectedItem.quantity} * ${selectedItem?.attributes?.price}
             </p>
           </div>
         ))}
         {selectedBook.length !== 0 && (
           <>
-            <div className="w-1/2 mx-auto flex justify-end mt-10">
+            <div className="md:w-2/3 lg:w-1/2 p-3 mx-auto flex justify-end md:mt-10">
               <h3 className="text-2xl font-bold  text-secondary">Total - </h3>
               <p className="text-right text-2xl  text-secondary">
                 ${total.toFixed(2)}
               </p>
             </div>
-            <div className="w-1/2 mx-auto flex  justify-end">
-              <button className="btn btn-primary my-10">Check Out</button>
+            <div className="md:w-2/3 lg:w-1/2 p-3 mx-auto flex  justify-end">
+              <button className="btn btn-primary md:my-10">Check Out</button>
             </div>
           </>
         )}

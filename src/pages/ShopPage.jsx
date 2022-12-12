@@ -13,21 +13,21 @@ const ShopPage = () => {
       <div className=" h-full grid grid-cols-5">
         <div className="  col-span-1 h-full bg-background_color border-r">
           <div className=" sticky top-0">
-            <h1 className=" text-center uppercase text-xl pt-5 font-bold text-text_color font-title">
+            <h1 className=" hidden md:block text-center uppercase text-xl pt-5 font-bold text-text_color font-title">
               categories
             </h1>
-            <div className=" p-2">
+            <div className=" md:p-2">
               {response.map((category) => (
                 <div
-                  className=" border-b p-1 hover:bg-background_gray_color "
+                  className=" border-b p-0 sm:p-1 hover:bg-background_gray_color "
                   key={category.id}
                 >
                   <NavLink
                     to={`${category.attributes.name}`}
                     className={({ isActive }) =>
                       isActive
-                        ? " text-primary block text-center"
-                        : " text-text_color block text-center"
+                        ? " text-primary block text-center text-sm md:text-md"
+                        : " text-text_color block text-center text-sm md:text-md"
                     }
                   >
                     {category.attributes.name}

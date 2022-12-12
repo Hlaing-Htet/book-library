@@ -10,12 +10,15 @@ const Modal = ({ show, onClose, selectedMember }) => {
   return (
     <>
       <div
-        className=" fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background_color"
+        className=" w-5/6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background_color"
         key={selectedMember.id}
       >
-        <div className="flex gap-5 p-5">
+        <div className="flex flex-col md:flex-row gap-5 p-5">
           <figure className="">
-            <img src={selectedMember.img} className=" rounded-xl h-full  " />
+            <img
+              src={selectedMember.img}
+              className=" rounded-xl h-full object-cover  "
+            />
           </figure>
           <div>
             <p className="mt-3 text-text_color">

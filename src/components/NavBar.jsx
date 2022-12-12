@@ -13,15 +13,15 @@ const NavBar = () => {
   const { bookCount } = useBookShopContext();
 
   return (
-    <nav className=" fixed w-full top-0 bg-background_gray_color z-10">
+    <nav className=" fixed w-full top-0 md:px-4 bg-background_gray_color z-10">
       <div className=" container mx-auto">
-        <div className=" flex items-center justify-between">
+        <div className=" flex items-center justify-evenly md:justify-between">
           <div className="">
             <NavLink to={"/"}>
               <img src={Logo} alt="logo" className=" h-16" />
             </NavLink>
           </div>
-          <div className=" w-1/4 flex justify-between">
+          <div className=" w-2/5 md:w-1/4  flex justify-between">
             <NavLink
               to={"/"}
               className={({ isActive }) =>

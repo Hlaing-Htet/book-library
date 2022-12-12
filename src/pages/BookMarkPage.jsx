@@ -36,7 +36,7 @@ const BookMarkPage = () => {
           </div>
         </div>
       ) : (
-        <div className=" grid grid-cols-4 gap-5 w-3/4 mx-auto p-5">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5  md:w-3/4 mx-auto p-5">
           {markedBook.map((book) => (
             <BookCardUI key={book[0].id} book={book[0]} />
           ))}

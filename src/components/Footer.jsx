@@ -24,7 +24,7 @@ const Footer = () => {
           <AiOutlineGoogle className="text-2xl text-text_color" />
           <AiFillYoutube className="text-2xl text-text_color" />
         </div>
-        <div className="flex justify-center gap-9 my-5 text-text_color text-sm font-sans font-semibold">
+        <div className="flex justify-center gap-2 md:gap-9 my-5 text-text_color text-sm font-sans font-semibold">
           <span>Trending</span>
           <span>Best Seller</span>
           <span>All Product</span>

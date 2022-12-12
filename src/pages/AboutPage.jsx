@@ -24,7 +24,7 @@ const AboutPage = () => {
         <h2 className="text-2xl font-bold font-title text-primary ">
           Our Mission
         </h2>
-        <p className="mt-3 text-lg font-semibold font-sans text-text_color">
+        <p className="mt-3 p-3 text-lg font-normal font-sans text-text_color opacity-60 ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           <br /> Atque at autem veniam fugiat quos rerum ratione
           <br /> accusantium! Fugit molestias amet autem eligendi <br />
@@ -32,7 +32,7 @@ const AboutPage = () => {
           ut ratione.
         </p>
       </div>
-      <h1 className="text-center font-title font-bold text-2xl text-primary">
+      <h1 className="text-center font-title font-bold text-2xl text-primary mt-10">
         Project Members
       </h1>
       <Members />
