@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import { BsFillInboxFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 //hooks
 import { useBookShopContext } from "../hooks/useBookShopContext";
@@ -35,6 +36,9 @@ const CheckOutPage = () => {
             </h2>
             <p className="text-bold text-2xl text-secondary">
               There is no book related with your cart!
+              <Link to={"/shop"}>
+                <button className=" btn btn-primary ml-3">Go to Shop</button>
+              </Link>
             </p>
           </div>
         </div>

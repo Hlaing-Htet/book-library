@@ -11,6 +11,7 @@ import GetBooks from "../services/GetBooks";
 import Footer from "../components/Footer";
 //hooks
 import { useBookShopContext } from "../hooks/useBookShopContext";
+import { Link } from "react-router-dom";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -80,7 +81,9 @@ const HomePage = () => {
             <p className="text-sm opacity-60 mt-5">
               Everybody can buy books freely.
             </p>
-            <button className="btn btn-primary mt-10 w-32">Buy Now</button>
+            <Link to={"/shop"}>
+              <button className=" btn btn-primary ml-3">Buy Now</button>
+            </Link>
           </div>
           <div className=" col-span-1 overflow-hidden ">
             <img src={Img} alt="" className=" h-full block ml-auto" />
