@@ -68,9 +68,13 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
       <motion.div
         variants={variants}
         animate={isHovered ? "hover" : "initial"}
-        className=" relative"
+        className=" relative  "
       >
-        <img src={url} className=" w-full object-cover h-96" alt="" />
+        <img
+          src={url}
+          className=" w-full object-cover h-36 sm:h-48 md:h-96"
+          alt=""
+        />
         <div className=" bg-primary absolute top-0 left-0 p-2">
           <span className=" text-sm">discount</span>{" "}
           <span>{!discount ? 0 : discount}%</span>
@@ -81,8 +85,10 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
         animate={isHovered ? "hover" : "initial"}
         ref={bookHover}
       >
-        <p className=" text-center text-primary mt-3">{title}</p>
-        <div className=" flex justify-center gap-10 my-2">
+        <p className=" text-center text-primary mt-3 text-sm sm:text-lg">
+          {title}
+        </p>
+        <div className=" flex justify-center gap-5 sm:gap-10 my-2 text-sm sm:text-lg">
           <span className=" text-primary">${discountPrice}</span>
           <span className=" text-text_color line-through">${price}</span>
         </div>

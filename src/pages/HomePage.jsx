@@ -23,7 +23,7 @@ function SampleNextArrow(props) {
         display: "block",
         background: "black",
         top: "50%",
-        right: "-10%",
+        right: "-5%",
         borderRadius: "15px",
         transform: "translateY(-50px)",
       }}
@@ -43,7 +43,7 @@ function SamplePrevArrow(props) {
         display: "block",
         background: "black",
         top: "50%",
-        left: "-10%",
+        left: "-5%",
         borderRadius: "15px",
         transform: "translateY(-50px)",
       }}
@@ -69,41 +69,38 @@ const HomePage = () => {
 
   return (
     <div className=" bg-background_color overflow-auto h-screen pt-16">
-      <section className=" bg-background_gray_color h-2/3">
-        <div className=" container mx-auto grid grid-cols-2 h-full">
-          <div className=" col-span-1 text-text_color text-6xl flex flex-col justify-center">
-            <div className=" mb-5">
-              The Best <span className="text-primary ml-3">Online</span>
-            </div>
-            <div className=" mb-5">
-              Books <span className="text-primary ml-3">Library</span>
-            </div>
-            <p className="text-sm opacity-60 mt-5">
-              Everybody can buy books freely.
-            </p>
+      <div className="hero min-h-2/3   bg-background_gray_color ">
+        <div className="hero-content flex-col md:flex-row  text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
+          <div className="md:text-left text-center">
+            <h1 className=" md:text-5xl text-3xl font-bold font-title mb-5">
+              The Best <span className="text-primary ">Online </span>
+            </h1>
+            <h1 className=" md:text-5xl text-3xl font-bold font-title mb-2">
+              Book <span className="text-primary ">Library</span>
+            </h1>
+
+            <p className="py-3 font-sans">Everybody can buy books freely.</p>
             <Link to={"/shop"}>
-              <button className=" btn btn-primary ml-3">Buy Now</button>
+              <button className="btn btn-primary mt-3">Get Started</button>
             </Link>
           </div>
-          <div className=" col-span-1 overflow-hidden ">
-            <img src={Img} alt="" className=" h-full block ml-auto" />
-          </div>
+          <img src={Img} className="max-w-xs lg:max-w-md md:max-w-sm " />
         </div>
-      </section>
+      </div>
 
       <section>
-        <h3 className="mt-10 text-center text-secondary text-2xl">
+        <h3 className="mt-10 text-center font-bold font-title text-secondary text-2xl">
           New <span className="text-primary">Books</span>
         </h3>
-        <p className="mt-10 text-center text-secondary mb-10">
+        <p className="mt-5 text-center font-sans text-secondary mb-8">
           There are many books , but there are the newest books
         </p>
 
-        <div className="relative w-3/5 mx-auto">
+        <div className=" lg:w-3/5 md:w-5/6 mx-auto mb-20   ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
             {response.slice(31, 35).map((book) => (
-              <div className=" p-5 " key={book.id}>
+              <div className="p-5" key={book.id}>
                 <BookCardUI
                   book={book}
                   bookCount={bookCount}
@@ -116,14 +113,14 @@ const HomePage = () => {
         </div>
       </section>
       <section>
-        <h3 className="mt-10 text-center text-secondary text-2xl">
+        <h3 className="mt-10 text-center font-bold font-title text-secondary text-2xl">
           Best <span className="text-primary">Seller Books</span>
         </h3>
-        <p className="mt-10 text-center text-secondary mb-10">
+        <p className="mt-5 text-center font-sans text-secondary mb-8">
           There are many books , but there are the best seller books
         </p>
 
-        <div className="w-3/5 mx-auto mb-20">
+        <div className="lg:w-3/5 md:w-5/6 mx-auto mb-20">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
             {response.slice(4, 8).map((book) => (
