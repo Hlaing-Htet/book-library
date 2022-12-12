@@ -1,37 +1,32 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+//React router
 import { NavLink, useLocation } from "react-router-dom";
-import { useBookMarkContext } from "../hooks/useBookMarkContext";
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { BsEye } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
-//
-
+//hooks
+import { useBookMarkContext } from "../hooks/useBookMarkContext";
+import { useBookShopContext } from "../hooks/useBookShopContext";
 const variants = {
   hover: {
     x: 0,
     scale: [1, 1.1, 1],
-    // rotateZ: [10, -10, 0],
     opacity: [0.5, 1],
   },
   initial: {
     x: 0,
     scale: 1,
-    // rotateZ: [10, -10, 0],
     opacity: [0.5, 1],
   },
 };
 
-const BookCardUI = ({
-  book: { attributes, id },
-  book,
-  handleBookCount,
-  handleBookCart,
-}) => {
+const BookCardUI = ({ book: { attributes, id }, book }) => {
   const { books, handleBookMarkAdd, handleBookMarkDelete } =
     useBookMarkContext();
+  const { handleBookCount, handleBookCart } = useBookShopContext();
 
   const markedBook = books.filter((book) => {
     return book.id === id;
@@ -100,8 +95,8 @@ const BookCardUI = ({
         className="hidden"
       >
         <div className=" flex justify-center gap-2 my-3">
+          {/* For view Btn start */}
           <NavLink
-            // to={location.pathname == "/" ? `shop/${category}/${id}` : `${id}`}
             to={
               location.pathname == "/"
                 ? `shop/${category}/${id}`
@@ -114,7 +109,8 @@ const BookCardUI = ({
               <BsEye className=" text-xl" />
             </button>
           </NavLink>
-
+          {/* for view btn end */}
+          {/* for bookmark btn start */}
           <button
             onClick={() => {
               markedBook.length === 0
@@ -127,11 +123,12 @@ const BookCardUI = ({
           >
             <BsBookmarkPlus className=" text-xl" />
           </button>
-
+          {/* for bookmark btn end */}
           <button
             className=" btn btn-circle btn-secondary btn-sm btn-outline"
             onClick={() => {
-              handleBookCount(), handleBookCart(book);
+              handleBookCount();
+              handleBookCart(book);
             }}
           >
             <RiShoppingBasketLine className=" text-xl" />

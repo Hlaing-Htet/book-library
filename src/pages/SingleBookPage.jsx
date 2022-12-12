@@ -1,23 +1,34 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookContext } from "../App";
+
 //service
 import GetSingleBook from "../services/GetSingleBook";
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
+//hooks
+import { useBookShopContext } from "../hooks/useBookShopContext";
+import { useBookMarkContext } from "../hooks/useBookMarkContext";
 
 const SingleBookPage = () => {
+  const { books, handleBookMarkAdd, handleBookMarkDelete } =
+    useBookMarkContext();
+  console.log(books);
   const { id } = useParams();
   const { response, loading } = GetSingleBook({ id });
-  const { handleBookCount, handleBookCart } = useContext(BookContext);
+  const { handleBookCount, handleBookCart } = useBookShopContext();
   if (loading) return null;
+  console.log("response", response);
 
   const imgLink = `http://localhost:1337${response.attributes.image.data[0].attributes.url}`;
   const { price, discount, title, description } = response.attributes;
 
   const discountPrice = (price - (price * discount) / 100).toFixed(2);
+
+  const markedBook = books.filter((book) => book.id === response.id);
+  console.log("markedbook", markedBook);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -52,8 +63,16 @@ const SingleBookPage = () => {
               </span>
             </div>
             <div className=" my-5 flex gap-5">
-              <button className=" btn btn-outline btn-primary gap-3">
-                Book Mark <BsBookmarkPlus className=" text-lg" />
+              <button
+                onClick={() => {
+                  markedBook.length === 0
+                    ? handleBookMarkAdd(Number(id))
+                    : handleBookMarkDelete(Number(id));
+                }}
+                className=" btn btn-outline btn-primary gap-3"
+              >
+                {markedBook.length > 0 ? "bookmarked" : "bookmark"}{" "}
+                <BsBookmarkPlus className=" text-lg" />
               </button>
               <button
                 className=" btn  btn-primary gap-3"

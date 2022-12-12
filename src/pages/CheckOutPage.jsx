@@ -1,17 +1,18 @@
 import React, { useContext } from "react";
-import { BookContext } from "../App";
+
 import { BsFillInboxFill } from "react-icons/bs";
 import Footer from "../components/Footer";
+//hooks
+import { useBookShopContext } from "../hooks/useBookShopContext";
 
 const CheckOutPage = () => {
   const {
-    response,
     selectedBook,
     handleBookCart,
     handleRemoveBook,
     handleBookCount,
     handleRemoveBookCount,
-  } = useContext(BookContext);
+  } = useBookShopContext();
   console.log(selectedBook);
 
   const total = selectedBook.reduce(
