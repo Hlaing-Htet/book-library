@@ -35,8 +35,8 @@ const SingleBookPage = () => {
       animate={{ opacity: 1 }}
       className=" py-5 px-1 sm:px-5 md:px-10"
     >
-      <div className=" bg-background_color">
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-5">
+      <div className=" bg-background_color border-b">
+        <div className="md:pb-5 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-5">
           <div className=" col-span-1">
             <img src={imgLink} alt="" className=" w-full" />
           </div>
@@ -62,7 +62,7 @@ const SingleBookPage = () => {
                 (Discount {!discount ? 0 + " %" : discount + " %"})
               </span>
             </div>
-            <div className=" my-5 flex sm:gap-5">
+            <div className=" my-5 flex flex-col sm:flex-row gap-5">
               <button
                 onClick={() => {
                   markedBook.length === 0
