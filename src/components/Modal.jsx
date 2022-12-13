@@ -10,7 +10,7 @@ const Modal = ({ show, onClose, selectedMember }) => {
   return (
     <>
       <div
-        className=" w-5/6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background_color"
+        className=" w-5/6 md:w-1/2 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background_color"
         key={selectedMember.id}
       >
         <div className="flex flex-col md:flex-row gap-5 p-5">
