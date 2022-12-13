@@ -28,6 +28,9 @@ const BookMarkPage = () => {
       transition={{ delay: 0.02 }}
       className=" flex flex-col bg-background_color h-screen pt-16 overflow-auto"
     >
+      <h3 className="text-2xl font-bold text-center text-secondary mt-5 mb-10">
+        My BookMark
+      </h3>
       {books.length === 0 ? (
         <div className="card justify-center w-auto ">
           <div className="card-body items-center text-center">
@@ -43,7 +46,7 @@ const BookMarkPage = () => {
           </div>
         </div>
       ) : (
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5  md:w-3/4 mx-auto p-5">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-full  md:w-3/4 mx-auto p-5">
           {markedBook.map((book) => (
             <BookCardUI key={book[0].id} book={book[0]} />
           ))}

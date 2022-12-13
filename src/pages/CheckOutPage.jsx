@@ -33,7 +33,7 @@ const CheckOutPage = () => {
       transition={{ delay: 0.02 }}
       className="flex flex-col bg-background_color h-screen pt-16 overflow-auto"
     >
-      <h3 className="text-2xl font-bold text-center text-secondary mt-5 mb-20">
+      <h3 className="text-2xl font-bold text-center text-secondary mt-5 mb-20 md:mb-10">
         My Cart
       </h3>
 
