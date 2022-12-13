@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 const AboutPage = () => {
   return (
+
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -20,6 +21,7 @@ const AboutPage = () => {
           <h1 className="mb-5 text-4xl text-center font-bold font-title text-background_color shadow-lg">
             Read Free Library Books and Download Free.
           </h1>
+
         </div>
       </div>
       <div className="text-center mt-12 h-56">

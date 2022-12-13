@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer components {
+
+  html {
+  scroll-behavior: smooth;
+  
   .loading {
     height: 0;
     width: 0;
@@ -26,4 +30,5 @@
       transform: rotate(360deg);
     }
   }
+
 }
