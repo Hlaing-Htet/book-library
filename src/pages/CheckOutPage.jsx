@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import { BsFillInboxFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -27,7 +27,12 @@ const CheckOutPage = () => {
   };
 
   return (
-    <div className="flex flex-col bg-background_color h-screen pt-16 overflow-auto">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.02 }}
+      className="flex flex-col bg-background_color h-screen pt-16 overflow-auto"
+    >
       <h3 className="text-2xl font-bold text-center text-secondary mt-5 mb-20">
         My Cart
       </h3>
@@ -108,7 +113,7 @@ const CheckOutPage = () => {
         )}
       </div>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,15 +3,17 @@ import { BsFillInboxFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import BookCardUI from "../components/BookCardUI";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 //hook
 import { useBookMarkContext } from "../hooks/useBookMarkContext";
 //services
 import GetBooks from "../services/GetBooks";
+import Loading from "../components/Loading";
 
 const BookMarkPage = () => {
   const { books } = useBookMarkContext();
   const { response, loading } = GetBooks();
-  if (loading) return null;
+  if (loading) return <Loading />;
   let markedBook = books.map((book) =>
     response.filter((res) => res.id === book.id)
   );
@@ -20,7 +22,12 @@ const BookMarkPage = () => {
 
   console.log(books);
   return (
-    <div className=" flex flex-col bg-background_color h-screen pt-16 overflow-auto">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.02 }}
+      className=" flex flex-col bg-background_color h-screen pt-16 overflow-auto"
+    >
       {books.length === 0 ? (
         <div className="card justify-center w-auto ">
           <div className="card-body items-center text-center">
@@ -43,7 +50,7 @@ const BookMarkPage = () => {
         </div>
       )}
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

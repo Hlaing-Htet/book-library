@@ -10,6 +10,7 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 //hooks
 import { useBookShopContext } from "../hooks/useBookShopContext";
 import { useBookMarkContext } from "../hooks/useBookMarkContext";
+import Loading from "../components/Loading";
 
 const SingleBookPage = () => {
   const { books, handleBookMarkAdd, handleBookMarkDelete } =
@@ -18,7 +19,7 @@ const SingleBookPage = () => {
   const { id } = useParams();
   const { response, loading } = GetSingleBook({ id });
   const { handleBookCount, handleBookCart } = useBookShopContext();
-  if (loading) return null;
+  if (loading) return <Loading />;
   console.log("response", response);
 
   const imgLink = `https://book-library-backend-production.up.railway.app${response.attributes.image.data[0].attributes.url}`;
