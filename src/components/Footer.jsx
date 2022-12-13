@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 import Img from "../assets/Logo.svg";
 
-
 const Footer = () => {
   return (
     <>

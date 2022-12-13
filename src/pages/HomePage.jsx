@@ -97,7 +97,6 @@ const HomePage = () => {
   };
 
   return (
-
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -107,7 +106,6 @@ const HomePage = () => {
       <div className="hero min-h-2/3   bg-background_gray_color ">
         <div className="hero-content p-0 px-3 flex-col md:flex-row mt-24 md:mt-0 text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
           <div className="md:text-left text-center">
-
             <h1 className=" md:text-5xl text-3xl font-bold font-title mb-5">
               The Best <span className="text-primary ">Online </span>
             </h1>
@@ -122,7 +120,7 @@ const HomePage = () => {
           </div>
           <img src={Img} className="max-w-xs lg:max-w-md md:max-w-sm " />
         </div>
-      </section>
+      </div>
 
       <section id="tranding" className="overflow-auto">
         <h3 className="mt-24 text-center font-bold font-title text-secondary text-2xl">
