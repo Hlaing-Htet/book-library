@@ -8,21 +8,10 @@ import heroPhoto from "../assets/aboutpageimage.png";
 const AboutPage = () => {
   return (
     <div className=" bg-background_color h-screen pt-16 overflow-auto">
-      {/* <div className="hero h-96 ">
-        <img src={heroPhoto} alt="" />
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-4xl font-bold font-title text-background_color">
-              Read Free Library Books and Download Free.
-            </h1>
-          </div>
-        </div>
-      </div> */}
       <div className=" relative h-96">
         <img src={heroPhoto} alt="" className=" w-full h-full object-cover" />
-        <div className="max-w-md absolute top-1/2 left-1/2 -translate-x-1/2">
-          <h1 className="mb-5 text-4xl text-center font-bold font-title text-background_color">
+        <div className="max-w-md absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+          <h1 className="mb-5 text-4xl text-center font-bold font-title text-background_color shadow-lg">
             Read Free Library Books and Download Free.
           </h1>
         </div>
