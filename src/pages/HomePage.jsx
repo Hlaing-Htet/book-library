@@ -81,7 +81,7 @@ const HomePage = () => {
 
             <p className="py-3 font-sans">Everybody can buy books freely.</p>
             <Link to={"/shop"}>
-              <button className="btn btn-primary mt-3">Get Started</button>
+              <button className="btn btn-primary mt-3">Buy Now</button>
             </Link>
           </div>
           <img src={Img} className="max-w-xs lg:max-w-md md:max-w-sm " />
