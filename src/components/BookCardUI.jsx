@@ -72,7 +72,7 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
       >
         <img
           src={url}
-          className=" w-full object-cover h-36 sm:h-48 md:h-96"
+          className=" w-full object-cover h-72 md:h-80 "
           alt=""
         />
         <div className=" bg-primary absolute top-0 left-0 p-2">
@@ -85,10 +85,10 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
         animate={isHovered ? "hover" : "initial"}
         ref={bookHover}
       >
-        <p className=" text-center text-primary mt-3 text-sm sm:text-lg">
+        <p className=" text-center text-primary mt-3 text-md md:text-lg ">
           {title}
         </p>
-        <div className=" flex justify-center gap-5 sm:gap-10 my-2 text-sm sm:text-lg">
+        <div className=" flex justify-center gap-5 md:gap-10 my-2 text-sm md:text-lg">
           <span className=" text-primary">${discountPrice}</span>
           <span className=" text-text_color line-through">${price}</span>
         </div>

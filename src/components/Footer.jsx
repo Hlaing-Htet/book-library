@@ -4,6 +4,7 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -18,22 +19,33 @@ const Footer = () => {
           passages
         </p>
         <div className="flex justify-center gap-7 my-3">
-          <BsFacebook className="text-2xl text-text_color" />
-          <AiOutlineTwitter className="text-2xl text-text_color" />
-          <AiFillInstagram className="text-2xl text-text_color" />
-          <AiOutlineGoogle className="text-2xl text-text_color" />
-          <AiFillYoutube className="text-2xl text-text_color" />
+          <BsFacebook className="text-2xl text-text_color hover:text-primary" />
+          <AiOutlineTwitter className="text-2xl text-text_color hover:text-primary" />
+          <AiFillInstagram className="text-2xl text-text_color hover:text-primary" />
+          <AiOutlineGoogle className="text-2xl text-text_color hover:text-primary" />
+          <AiFillYoutube className="text-2xl text-text_color hover:text-primary" />
         </div>
         <div className="flex justify-center gap-2 md:gap-9 my-5 text-text_color text-sm font-sans font-semibold">
-          <span>Trending</span>
-          <span>Best Seller</span>
-          <span>All Product</span>
-          <span>Wishlist</span>
-          <span>Blog</span>
-          <span>About</span>
+          <a href="#tranding">
+            <span className="hover:text-primary">Trending</span>
+          </a>
+
+          <a href="#bestSeller">
+            <span className="hover:text-primary">Best Seller</span>
+          </a>
+          <Link to={"/shop"}>
+            <span className="hover:text-primary">All Products</span>
+          </Link>
+          <Link to={"/bookmark"}>
+            <span className="hover:text-primary">Wishlist</span>
+          </Link>
+
+          <Link to={"/about"}>
+            <span className="hover:text-primary">About</span>
+          </Link>
         </div>
         <div className=" mt-auto bg-text_color p-3 text-sm  ">
-          <p className=" container mx-auto text-primary ">
+          <p className=" container text-center text-primary ">
             <span className="">@ 2022 All Rights Reserved</span>
             <span className="ml-2 ">Book Library</span>
             <span className="ml-2 ">By</span>

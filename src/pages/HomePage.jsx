@@ -58,20 +58,47 @@ const HomePage = () => {
   console.log(response);
   if (loading) return null;
 
+  // const settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   nextArrow: <SampleNextArrow />,
+  //   prevArrow: <SamplePrevArrow />,
+  // };
   const settings = {
     dots: false,
     infinite: true,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    // initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 720,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          // initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div className=" bg-background_color overflow-auto h-screen pt-16">
-      <div className="hero min-h-2/3   bg-background_gray_color ">
-        <div className="hero-content flex-col md:flex-row  text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
-          <div className="md:text-left text-center">
+      <section className="hero min-h-2/3   bg-background_gray_color ">
+        <div className="hero-content flex-col sm:flex-row  text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
+          <div className="sm:text-left text-center">
             <h1 className=" md:text-5xl text-3xl font-bold font-title mb-5">
               The Best <span className="text-primary ">Online </span>
             </h1>
@@ -86,21 +113,21 @@ const HomePage = () => {
           </div>
           <img src={Img} className="max-w-xs lg:max-w-md md:max-w-sm " />
         </div>
-      </div>
+      </section>
 
-      <section>
-        <h3 className="mt-10 text-center font-bold font-title text-secondary text-2xl">
+      <section id="tranding" className="overflow-auto">
+        <h3 className="mt-24 text-center font-bold font-title text-secondary text-2xl">
           New <span className="text-primary">Books</span>
         </h3>
         <p className="mt-5 text-center font-sans text-secondary mb-8">
           There are many books , but there are the newest books
         </p>
 
-        <div className=" lg:w-3/5 md:w-5/6 mx-auto mb-20   ">
+        <div className="w-2/3 lg:w-3/5 md:w-5/6 mx-auto    ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
             {response.slice(31, 35).map((book) => (
-              <div className="p-5" key={book.id}>
+              <div className="p-2 md:p-5" key={book.id}>
                 <BookCardUI
                   book={book}
                   bookCount={bookCount}
@@ -112,19 +139,19 @@ const HomePage = () => {
           </Slider>
         </div>
       </section>
-      <section>
-        <h3 className="mt-10 text-center font-bold font-title text-secondary text-2xl">
+      <section id="bestSeller" className="overflow-auto">
+        <h3 className="mt-24 text-center font-bold font-title text-secondary text-2xl ">
           Best <span className="text-primary">Seller Books</span>
         </h3>
-        <p className="mt-5 text-center font-sans text-secondary mb-8">
+        <p className="mt-10 text-center font-sans text-secondary mb-8">
           There are many books , but there are the best seller books
         </p>
 
-        <div className="lg:w-3/5 md:w-5/6 mx-auto mb-20">
+        <div className="w-2/3 lg:w-3/5 md:w-5/6 mx-auto mb-20  ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
             {response.slice(4, 8).map((book) => (
-              <div className=" p-5" key={book.id}>
+              <div className=" p-2 md:p-5" key={book.id}>
                 <BookCardUI
                   book={book}
                   bookCount={bookCount}
