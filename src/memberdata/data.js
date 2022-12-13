@@ -1,7 +1,9 @@
+import Img from "../assets/man.jpg";
+
 export const memberInfodata = [
   {
     id: 1,
-    img: "src/assets/man.jpg",
+    img: Img,
     name: "Ngwe Thawtar Tun",
     age: "24",
     description:
@@ -12,7 +14,7 @@ export const memberInfodata = [
   },
   {
     id: 2,
-    img: "src/assets/man.jpg",
+    img: Img,
     name: "Wendy Aike Maung",
     age: "24",
     description:
@@ -23,7 +25,7 @@ export const memberInfodata = [
   },
   {
     id: 3,
-    img: "src/assets/man.jpg",
+    img: Img,
     name: "Mya Pwint",
     age: "24",
     description:
@@ -34,7 +36,7 @@ export const memberInfodata = [
   },
   {
     id: 4,
-    img: "src/assets/man.jpg",
+    img: Img,
     name: "Aung Khant Soe",
     age: "24",
     description:
@@ -45,7 +47,7 @@ export const memberInfodata = [
   },
   {
     id: 5,
-    img: "src/assets/man.jpg",
+    img: Img,
     name: "Hlaing Htet",
     age: "24",
     description:
@@ -56,7 +58,7 @@ export const memberInfodata = [
   },
   {
     id: 6,
-    img: "src/assets/man.jpg",
+    img: Img,
     name: "Min Htet Aung",
     age: "24",
     description:

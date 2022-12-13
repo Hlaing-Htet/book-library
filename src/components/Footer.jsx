@@ -4,13 +4,14 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
+import Img from "../assets/Logo.svg";
 
 const Footer = () => {
   return (
     <>
       <footer className=" flex flex-col mt-auto bg-background_gray_color  ">
         <figure className="flex justify-center w-full">
-          <img src="src/assets/Logo.svg" className="w-20" />
+          <img src={Img} className="w-20" />
         </figure>
         <p className="font-sans text-center text-text_color opacity-60">
           There are many variations of passages of Lorem Ipsum available, but
