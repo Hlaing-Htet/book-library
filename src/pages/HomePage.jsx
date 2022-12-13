@@ -70,7 +70,7 @@ const HomePage = () => {
   return (
     <div className=" bg-background_color overflow-auto h-screen pt-16">
       <div className="hero min-h-2/3   bg-background_gray_color ">
-        <div className="hero-content flex-col md:flex-row  text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
+        <div className="hero-content p-0 px-3 flex-col md:flex-row mt-24 md:mt-0 text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
           <div className="md:text-left text-center">
             <h1 className=" md:text-5xl text-3xl font-bold font-title mb-5">
               The Best <span className="text-primary ">Online </span>
