@@ -11,7 +11,7 @@ export default function GetBooks() {
 
     axios
       .get(
-        "http://localhost:1337/api/books?pagination[page]=1&pagination[pageSize]=51&populate=image&populate=categories"
+        "https://book-library-backend-production.up.railway.app/api/books?pagination[page]=1&pagination[pageSize]=51&populate=image&populate=categories"
       )
       .then(({ data }) => {
         setResponse(data.data);

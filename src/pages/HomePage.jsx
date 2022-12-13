@@ -1,5 +1,6 @@
 import React from "react";
 import BookCardUI from "../components/BookCardUI";
+import { motion } from "framer-motion";
 
 import Img from "../assets/homepageimage.png";
 //Slider
@@ -12,6 +13,7 @@ import Footer from "../components/Footer";
 //hooks
 import { useBookShopContext } from "../hooks/useBookShopContext";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -56,7 +58,7 @@ const HomePage = () => {
 
   const { response, loading } = GetBooks();
   console.log(response);
-  if (loading) return null;
+  if (loading) return <Loading />;
 
   // const settings = {
   //   dots: false,
@@ -95,10 +97,17 @@ const HomePage = () => {
   };
 
   return (
-    <div className=" bg-background_color overflow-auto h-screen pt-16">
-      <section className="hero min-h-2/3   bg-background_gray_color ">
-        <div className="hero-content flex-col sm:flex-row  text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
-          <div className="sm:text-left text-center">
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.02 }}
+      className=" bg-background_color overflow-auto h-screen pt-16"
+    >
+      <div className="hero min-h-2/3   bg-background_gray_color ">
+        <div className="hero-content p-0 px-3 flex-col md:flex-row mt-24 md:mt-0 text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
+          <div className="md:text-left text-center">
+
             <h1 className=" md:text-5xl text-3xl font-bold font-title mb-5">
               The Best <span className="text-primary ">Online </span>
             </h1>
@@ -108,7 +117,7 @@ const HomePage = () => {
 
             <p className="py-3 font-sans">Everybody can buy books freely.</p>
             <Link to={"/shop"}>
-              <button className="btn btn-primary mt-3">Get Started</button>
+              <button className="btn btn-primary mt-3">Buy Now</button>
             </Link>
           </div>
           <img src={Img} className="max-w-xs lg:max-w-md md:max-w-sm " />
@@ -165,7 +174,7 @@ const HomePage = () => {
       </section>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

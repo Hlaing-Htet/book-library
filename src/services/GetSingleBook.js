@@ -11,7 +11,7 @@ export default function GetSingleBook({ id }) {
 
     axios
       .get(
-        `http://localhost:1337/api/books/${id}?populate=image&populate=categories`
+        `https://book-library-backend-production.up.railway.app/api/books/${id}?populate=image&populate=categories`
       )
       .then(({ data }) => {
         setResponse(data.data);

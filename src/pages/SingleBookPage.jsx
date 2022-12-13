@@ -10,6 +10,7 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 //hooks
 import { useBookShopContext } from "../hooks/useBookShopContext";
 import { useBookMarkContext } from "../hooks/useBookMarkContext";
+import Loading from "../components/Loading";
 
 const SingleBookPage = () => {
   const { books, handleBookMarkAdd, handleBookMarkDelete } =
@@ -18,10 +19,10 @@ const SingleBookPage = () => {
   const { id } = useParams();
   const { response, loading } = GetSingleBook({ id });
   const { handleBookCount, handleBookCart } = useBookShopContext();
-  if (loading) return null;
+  if (loading) return <Loading />;
   console.log("response", response);
 
-  const imgLink = `http://localhost:1337${response.attributes.image.data[0].attributes.url}`;
+  const imgLink = `https://book-library-backend-production.up.railway.app${response.attributes.image.data[0].attributes.url}`;
   const { price, discount, title, description } = response.attributes;
 
   const discountPrice = (price - (price * discount) / 100).toFixed(2);
@@ -35,8 +36,8 @@ const SingleBookPage = () => {
       animate={{ opacity: 1 }}
       className=" py-5 px-1 sm:px-5 md:px-10"
     >
-      <div className=" bg-background_color">
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-5">
+      <div className=" bg-background_color border-b">
+        <div className="md:pb-5 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-5">
           <div className=" col-span-1">
             <img src={imgLink} alt="" className=" w-full" />
           </div>
@@ -62,7 +63,7 @@ const SingleBookPage = () => {
                 (Discount {!discount ? 0 + " %" : discount + " %"})
               </span>
             </div>
-            <div className=" my-5 flex sm:gap-5">
+            <div className=" my-5 flex flex-col sm:flex-row gap-5">
               <button
                 onClick={() => {
                   markedBook.length === 0
