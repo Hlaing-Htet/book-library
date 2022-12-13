@@ -42,7 +42,7 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
     categories,
   } = attributes;
   const category = categories.data[0].attributes.name;
-  const url = `http://localhost:1337${data[0].attributes.url}`;
+  const url = `https://book-library-backend-production.up.railway.app${data[0].attributes.url}`;
 
   const [isHovered, setIsHovered] = useState(false);
   const bookHover = useRef(null);

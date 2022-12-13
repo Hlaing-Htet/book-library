@@ -21,7 +21,7 @@ const SingleBookPage = () => {
   if (loading) return null;
   console.log("response", response);
 
-  const imgLink = `http://localhost:1337${response.attributes.image.data[0].attributes.url}`;
+  const imgLink = `https://book-library-backend-production.up.railway.app${response.attributes.image.data[0].attributes.url}`;
   const { price, discount, title, description } = response.attributes;
 
   const discountPrice = (price - (price * discount) / 100).toFixed(2);

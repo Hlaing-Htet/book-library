@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { BsFillInboxFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -21,6 +21,10 @@ const CheckOutPage = () => {
       accumulator + currentValue?.attributes?.price * currentValue.quantity,
     0
   );
+
+  const handleClick = () => {
+    alert("Check Out Page is coming soon !!!! ");
+  };
 
   return (
     <div className="flex flex-col bg-background_color h-screen pt-16 overflow-auto">
@@ -52,7 +56,7 @@ const CheckOutPage = () => {
           >
             <figure className=" bottom-full left-1/2 -translate-x-1/2 md:translate-x-0  md:-top-20 md:left-2  absolute">
               <img
-                src={`http://localhost:1337${selectedItem.attributes.image.data[0].attributes.url}`}
+                src={`https://book-library-backend-production.up.railway.app${selectedItem.attributes.image.data[0].attributes.url}`}
                 // src = `http://localhost:1337${data[0].attributes.url}`
                 alt="a"
                 className="h-16 md:h-24 w-16 md:w-24 object-fill"
@@ -93,7 +97,12 @@ const CheckOutPage = () => {
               </p>
             </div>
             <div className="md:w-2/3 lg:w-1/2 p-3 mx-auto flex  justify-end">
-              <button className="btn btn-primary md:my-10">Check Out</button>
+              <button
+                onClick={handleClick}
+                className="btn btn-primary md:my-10"
+              >
+                Check Out
+              </button>
             </div>
           </>
         )}

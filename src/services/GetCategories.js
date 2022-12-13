@@ -10,7 +10,9 @@ export default function GetCategories() {
     setResponse(null);
 
     axios
-      .get("http://localhost:1337/api/categories")
+      .get(
+        "https://book-library-backend-production.up.railway.app/api/categories"
+      )
       .then(({ data }) => {
         setResponse(data.data);
         setLoading(false);
