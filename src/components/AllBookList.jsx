@@ -1,28 +1,20 @@
-import React, { useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import React from "react";
 import Loading from "../components/Loading";
 import BookCardUI from "../components/BookCardUI";
 //services
 import GetBooks from "../services/GetBooks";
+import { useState } from "react";
 import NoBookUI from "./NoBookUI";
-
-const ShopList = () => {
+const AllBookList = () => {
   const { response, loading } = GetBooks();
   const [searchBook, setSearchBook] = useState("");
-
-  const { name } = useParams();
   if (loading) return <Loading />;
   const handleSearch = (e) => {
     console.log(e.target.value);
     setSearchBook(e.target.value);
   };
 
-  const fitData =
-    response &&
-    response.filter(
-      (book) => book.attributes.categories.data[0].attributes.name == name
-    );
-  const searchingBook = fitData.filter((book) => {
+  const searchingBook = response.filter((book) => {
     return book.attributes.title
       .toLowerCase()
       .includes(searchBook.toLowerCase());
@@ -39,7 +31,7 @@ const ShopList = () => {
           onChange={handleSearch}
         />
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mx-0 md:m-5  ">
+      <div className=" grid grid-cols-4 gap-5 mx-5">
         {searchingBook.length > 0 ? (
           searchingBook.map((book) => <BookCardUI key={book.id} book={book} />)
         ) : (
@@ -50,4 +42,4 @@ const ShopList = () => {
   );
 };
 
-export default ShopList;
+export default AllBookList;

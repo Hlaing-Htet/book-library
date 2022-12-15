@@ -14,7 +14,7 @@ const Footer = () => {
     <>
       <footer className=" flex flex-col mt-auto bg-background_gray_color  ">
         <figure className="flex justify-center w-full">
-          <img src={Img} className="w-20" />
+          <img src={Img} className="w-20 m-3" />
         </figure>
         <p className="font-sans text-center text-text_color opacity-60">
           There are many variations of passages of Lorem Ipsum available, but
@@ -48,7 +48,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className=" mt-auto bg-text_color p-3 text-sm  ">
-          <p className=" container text-center text-primary ">
+          <p className=" container  text-primary ">
             <span className="">@ 2022 All Rights Reserved</span>
             <span className="ml-2 ">Book Library</span>
             <span className="ml-2 ">By</span>

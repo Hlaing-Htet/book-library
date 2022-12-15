@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
 //service
 import GetSingleBook from "../services/GetSingleBook";
+import GetBooks from "../services/GetBooks";
+
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
@@ -11,49 +13,76 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 import { useBookShopContext } from "../hooks/useBookShopContext";
 import { useBookMarkContext } from "../hooks/useBookMarkContext";
 import Loading from "../components/Loading";
+import BookCardUI from "../components/BookCardUI";
 
 const SingleBookPage = () => {
+  const [isBookMark, setIsBookMark] = useState(false);
+  const [isBuy, setIsBuy] = useState(false);
+  // to get all books
+  const { response: booksResponse, loading: booksLoading } = GetBooks();
   const { books, handleBookMarkAdd, handleBookMarkDelete } =
     useBookMarkContext();
-  console.log(books);
+
   const { id } = useParams();
   const { response, loading } = GetSingleBook({ id });
+
   const { handleBookCount, handleBookCart } = useBookShopContext();
+  if (booksLoading) return <Loading />;
   if (loading) return <Loading />;
-  console.log("response", response);
 
   const imgLink = `https://book-library-backend-production.up.railway.app${response.attributes.image.data[0].attributes.url}`;
+
   const { price, discount, title, description } = response.attributes;
 
   const discountPrice = (price - (price * discount) / 100).toFixed(2);
 
   const markedBook = books.filter((book) => book.id === response.id);
-  console.log("markedbook", markedBook);
 
+  const fitBooks =
+    booksResponse &&
+    booksResponse
+      .filter(
+        (book) =>
+          book.attributes.categories.data[0].attributes.name ===
+          response.attributes.categories.data[0].attributes.name
+      )
+      .filter((bo) => bo.id !== response.id);
+  const bookMark = () => {
+    setIsBookMark(true);
+    setTimeout(() => {
+      setIsBookMark(false);
+    }, 2000);
+  };
+  const buying = () => {
+    setIsBuy(true);
+    setTimeout(() => {
+      setIsBuy(false);
+    }, 2000);
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className=" py-5 px-1 sm:px-5 md:px-10"
+      className=" h-screen overflow-hidden  pt-16"
     >
-      <div className=" bg-background_color border-b">
-        <div className="md:pb-5 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-5">
-          <div className=" col-span-1">
-            <img src={imgLink} alt="" className=" w-full" />
+      <div className="h-full bg-background_color border-b p-5">
+        <div className="h-full  grid grid-cols-1   md:grid-cols-4 gap-0 md:gap-5">
+          <div className=" col-span-1 flex p-5 flex-col justify-center bg-background_gray_color">
+            <img src={imgLink} alt="" className=" h-2/3 object-cover " />
           </div>
-          <div className=" col-span-2 flex flex-col justify-center">
-            <h1 className=" text-xl text-primary font-title font-semibold mt-5 md:mt-0">
-              <span className=" text-text_color">Title : </span> {title}
+          <div className=" col-span-2 flex flex-col justify-center bg-background_gray_color">
+            <h1 className="w-4/5 mx-auto text-2xl  text-primary font-title font-semibold mt-5 md:mt-0">
+              <span className="   text-text_color">Title : </span> {title}
             </h1>
-            <div>
-              <h2 className=" mt-5 mb-2 text-text_color text-lg">
+            <div className=" w-4/5 mx-auto">
+              <h2 className=" mt-5 mb-2 text-text_color text-xl">
                 Description
               </h2>
-              <p className=" md:w-3/4 text-text_color  opacity-60">
+              <p className=" text-text_color text-justify  opacity-70">
                 {description}
               </p>
             </div>
-            <div className=" mt-5">
+            <div className="w-4/5 mx-auto mt-5">
               <span className=" text-text_color">Price : </span>
               <span className=" text-primary">${discountPrice}</span>
               <span className=" text-text_color line-through ml-2">
@@ -63,12 +92,13 @@ const SingleBookPage = () => {
                 (Discount {!discount ? 0 + " %" : discount + " %"})
               </span>
             </div>
-            <div className=" my-5 flex flex-col sm:flex-row gap-5">
+            <div className="w-4/5 mx-auto my-5 flex flex-col items-center sm:flex-row gap-5">
               <button
                 onClick={() => {
                   markedBook.length === 0
                     ? handleBookMarkAdd(Number(id))
                     : handleBookMarkDelete(Number(id));
+                  bookMark();
                 }}
                 className=" btn btn-outline btn-primary gap-3"
               >
@@ -79,14 +109,55 @@ const SingleBookPage = () => {
                 className=" btn  btn-primary gap-3"
                 onClick={() => {
                   handleBookCount(), handleBookCart(response);
+                  buying();
                 }}
               >
                 Buy Now <RiShoppingBasketLine className=" text-lg" />
               </button>
             </div>
+            <div className="w-4/5 mx-auto my-5">
+              <a className="link link-primary">Read Free For 3 days</a>
+            </div>
+          </div>
+          <div className=" col-span-1 overflow-auto h-full">
+            <h1 className=" z-10 text-center sticky top-0 p-1 text-lg bg-primary">
+              Similar Books
+            </h1>
+            <div className=" grid grid-cols-2 gap-2 mt-2">
+              {fitBooks &&
+                fitBooks.map((book) => (
+                  <BookCardUI key={book.id} book={book} />
+                ))}
+            </div>
           </div>
         </div>
       </div>
+      {isBookMark && (
+        <div className="toast  z-20">
+          <div
+            className={`alert alert-info ${
+              markedBook.length === 0 ? "bg-text_color" : "bg-primary"
+            } text-background_color`}
+          >
+            <div>
+              <span>
+                {markedBook.length === 0
+                  ? `you unbookmark ${title}`
+                  : `you bookmark ${title}`}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+      {isBuy && (
+        <div className="toast  z-20">
+          <div className={`alert alert-info bg-primary text-background_color`}>
+            <div>
+              <span>you are buying {title}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };

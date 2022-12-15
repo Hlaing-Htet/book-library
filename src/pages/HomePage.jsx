@@ -57,8 +57,6 @@ const HomePage = () => {
   const { bookCount, handleBookCount, handleBookCart } = useBookShopContext();
 
   const { response, loading } = GetBooks();
-  console.log(response);
-  if (loading) return <Loading />;
 
   // const settings = {
   //   dots: false,
@@ -105,7 +103,12 @@ const HomePage = () => {
     >
       <div className="hero min-h-2/3   bg-background_gray_color ">
         <div className="hero-content p-0 px-3 flex-col md:flex-row mt-24 md:mt-0 text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
-          <div className="md:text-left text-center">
+          <motion.div
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="md:text-left text-center"
+          >
             <h1 className=" md:text-5xl text-3xl font-bold font-title mb-5">
               The Best <span className="text-primary ">Online </span>
             </h1>
@@ -117,8 +120,14 @@ const HomePage = () => {
             <Link to={"/shop"}>
               <button className="btn btn-primary mt-3">Buy Now</button>
             </Link>
-          </div>
-          <img src={Img} className="max-w-xs lg:max-w-md md:max-w-sm " />
+          </motion.div>
+          <motion.img
+            initial={{ x: "100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.2 }}
+            src={Img}
+            className="max-w-xs lg:max-w-md md:max-w-sm "
+          />
         </div>
       </div>
 
@@ -133,20 +142,24 @@ const HomePage = () => {
         <div className="w-2/3 lg:w-3/5 md:w-5/6 mx-auto    ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
-            {response.slice(31, 35).map((book) => (
-              <div className="p-2 md:p-5" key={book.id}>
-                <BookCardUI
-                  book={book}
-                  bookCount={bookCount}
-                  handleBookCount={handleBookCount}
-                  handleBookCart={handleBookCart}
-                />
-              </div>
-            ))}
+            {response ? (
+              response.slice(31, 35).map((book) => (
+                <div className="p-2 md:p-5" key={book.id}>
+                  <BookCardUI
+                    book={book}
+                    bookCount={bookCount}
+                    handleBookCount={handleBookCount}
+                    handleBookCart={handleBookCart}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className=" text-center text-primary text-6xl">....</div>
+            )}
           </Slider>
         </div>
       </section>
-      <section id="bestSeller" className="overflow-auto">
+      <section id="bestSeller">
         <h3 className="mt-24 text-center font-bold font-title text-secondary text-2xl ">
           Best <span className="text-primary">Seller Books</span>
         </h3>
@@ -154,19 +167,23 @@ const HomePage = () => {
           There are many books , but there are the best seller books
         </p>
 
-        <div className="w-2/3 lg:w-3/5 md:w-5/6 mx-auto mb-20  ">
+        <div className="w-2/3  lg:w-3/5 md:w-5/6 mx-auto mb-20  ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
-            {response.slice(4, 8).map((book) => (
-              <div className=" p-2 md:p-5" key={book.id}>
-                <BookCardUI
-                  book={book}
-                  bookCount={bookCount}
-                  handleBookCount={handleBookCount}
-                  handleBookCart={handleBookCart}
-                />
-              </div>
-            ))}
+            {response ? (
+              response.slice(4, 8).map((book) => (
+                <div className=" p-2 md:p-5" key={book.id}>
+                  <BookCardUI
+                    book={book}
+                    bookCount={bookCount}
+                    handleBookCount={handleBookCount}
+                    handleBookCart={handleBookCart}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className=" text-center text-primary text-6xl">....</div>
+            )}
           </Slider>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 //React router
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //icons
 import { BsBookmarkPlus } from "react-icons/bs";
 import { RiShoppingBasketLine } from "react-icons/ri";
@@ -27,26 +27,26 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
   const { books, handleBookMarkAdd, handleBookMarkDelete } =
     useBookMarkContext();
   const { handleBookCount, handleBookCart } = useBookShopContext();
+  const [isBookMark, setIsBookMark] = useState(false);
+  const [isBuy, setIsBuy] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const bookHover = useRef(null);
+  const bookLeave = useRef(null);
 
   const markedBook = books.filter((book) => {
     return book.id === id;
   });
-
-  const location = useLocation();
 
   const {
     title,
     price,
     discount,
     image: { data },
-    categories,
+    // categories,
   } = attributes;
-  const category = categories.data[0].attributes.name;
+  // const category = categories.data[0].attributes.name;
   const url = `https://book-library-backend-production.up.railway.app${data[0].attributes.url}`;
 
-  const [isHovered, setIsHovered] = useState(false);
-  const bookHover = useRef(null);
-  const bookLeave = useRef(null);
   const discountPrice = (price - (price * discount) / 100).toFixed(2);
   const handleMouseEnter = () => {
     bookHover.current.className = "hidden";
@@ -57,6 +57,18 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
     bookHover.current.className = "block";
     bookLeave.current.className = "hidden";
     setIsHovered(false);
+  };
+  const bookMark = () => {
+    setIsBookMark(true);
+    setTimeout(() => {
+      setIsBookMark(false);
+    }, 2000);
+  };
+  const buying = () => {
+    setIsBuy(true);
+    setTimeout(() => {
+      setIsBuy(false);
+    }, 2000);
   };
 
   return (
@@ -70,11 +82,7 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
         animate={isHovered ? "hover" : "initial"}
         className=" relative  "
       >
-        <img
-          src={url}
-          className=" w-full object-cover h-72 md:h-80 "
-          alt=""
-        />
+        <img src={url} className=" w-full object-cover min-h-16 " alt="" />
         <div className=" bg-primary absolute top-0 left-0 p-2">
           <span className=" text-sm">discount</span>{" "}
           <span>{!discount ? 0 : discount}%</span>
@@ -103,13 +111,14 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
         <div className=" flex justify-center gap-2 my-3">
           {/* For view Btn start */}
           <NavLink
-            to={
-              location.pathname == "/"
-                ? `shop/${category}/${id}`
-                : location.pathname == "/shop"
-                ? `${id}`
-                : `${(location.pathname = `/shop/${category}/${id}`)}`
-            }
+            // to={
+            //   location.pathname == "/"
+            //     ? `shop/${category}/${id}`
+            //     : location.pathname == "/shop"
+            //     ? `${id}`
+            //     : `${(location.pathname = `/shop/${category}/${id}`)}`
+            // }
+            to={`/details/${id}`}
           >
             <button className=" btn btn-circle btn-secondary btn-sm btn-outline">
               <BsEye className=" text-xl" />
@@ -122,6 +131,7 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
               markedBook.length === 0
                 ? handleBookMarkAdd(id)
                 : handleBookMarkDelete(id);
+              bookMark();
             }}
             className={`btn btn-circle btn-secondary btn-sm ${
               markedBook.length > 0 ? "btn-primary" : "btn-outline"
@@ -135,6 +145,7 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
             onClick={() => {
               handleBookCount();
               handleBookCart(book);
+              buying();
             }}
           >
             <RiShoppingBasketLine className=" text-xl" />
@@ -148,6 +159,32 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
           <AiOutlineStar className=" text-primary " />
         </div>
       </motion.div>
+      {isBookMark && (
+        <div className="toast  z-20">
+          <div
+            className={`alert alert-info ${
+              markedBook.length === 0 ? "bg-text_color" : "bg-primary"
+            } text-background_color`}
+          >
+            <div>
+              <span>
+                {markedBook.length === 0
+                  ? `you unbookmark ${title}`
+                  : `you bookmark ${title}`}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+      {isBuy && (
+        <div className="toast  z-20">
+          <div className={`alert alert-info bg-primary text-background_color`}>
+            <div>
+              <span>you are buying {title}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -25,7 +25,7 @@ const NavBar = () => {
             <NavLink
               to={"/"}
               className={({ isActive }) =>
-                isActive ? " text-primary" : " text-text_color"
+                isActive ? " text-primary font-bold" : " text-text_color"
               }
             >
               Home
@@ -33,7 +33,7 @@ const NavBar = () => {
             <NavLink
               to={"/shop"}
               className={({ isActive }) =>
-                isActive ? " text-primary" : " text-text_color"
+                isActive ? " text-primary font-bold" : " text-text_color"
               }
             >
               Shop
@@ -41,7 +41,7 @@ const NavBar = () => {
             <NavLink
               to={"/about"}
               className={({ isActive }) =>
-                isActive ? " text-primary" : " text-text_color"
+                isActive ? " text-primary font-bold" : " text-text_color"
               }
             >
               About
