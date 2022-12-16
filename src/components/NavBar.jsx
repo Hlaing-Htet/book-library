@@ -47,7 +47,7 @@ const NavBar = () => {
               About
             </NavLink>
           </div>
-          <div className="flex items-center  gap-5">
+          <div className="flex items-center  gap-2 md:gap-5">
             {/* BookMark Btn */}
             <div className="indicator ">
               <NavLink to={"/bookmark"} className="h-6">

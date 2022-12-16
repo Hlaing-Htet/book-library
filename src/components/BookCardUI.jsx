@@ -160,7 +160,7 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
         </div>
       </motion.div>
       {isBookMark && (
-        <div className="toast  z-20">
+        <div className="toast   z-20">
           <div
             className={`alert alert-info ${
               markedBook.length === 0 ? "bg-text_color" : "bg-primary"

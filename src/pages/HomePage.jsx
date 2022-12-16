@@ -11,9 +11,9 @@ import "slick-carousel/slick/slick-theme.css";
 import GetBooks from "../services/GetBooks";
 import Footer from "../components/Footer";
 //hooks
-import { useBookShopContext } from "../hooks/useBookShopContext";
+
 import { Link } from "react-router-dom";
-import Loading from "../components/Loading";
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -25,7 +25,7 @@ function SampleNextArrow(props) {
         display: "block",
         background: "black",
         top: "50%",
-        right: "-5%",
+        right: "-9%",
         borderRadius: "15px",
         transform: "translateY(-50px)",
       }}
@@ -45,7 +45,7 @@ function SamplePrevArrow(props) {
         display: "block",
         background: "black",
         top: "50%",
-        left: "-5%",
+        left: "-9%",
         borderRadius: "15px",
         transform: "translateY(-50px)",
       }}
@@ -54,18 +54,8 @@ function SamplePrevArrow(props) {
   );
 }
 const HomePage = () => {
-  const { bookCount, handleBookCount, handleBookCart } = useBookShopContext();
+  const { response } = GetBooks();
 
-  const { response, loading } = GetBooks();
-
-  // const settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   nextArrow: <SampleNextArrow />,
-  //   prevArrow: <SamplePrevArrow />,
-  // };
   const settings = {
     dots: false,
     infinite: true,
@@ -135,22 +125,17 @@ const HomePage = () => {
         <h3 className="mt-24 text-center font-bold font-title text-secondary text-2xl">
           New <span className="text-primary">Books</span>
         </h3>
-        <p className="mt-5 text-center font-sans text-secondary mb-8">
+        <p className="mt-5 px-5 text-center font-sans text-secondary mb-8">
           There are many books , but there are the newest books
         </p>
 
-        <div className="w-2/3 lg:w-3/5 md:w-5/6 mx-auto    ">
+        <div className="w-4/5 lg:w-3/5 md:w-5/6 mx-auto    ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
             {response ? (
               response.slice(31, 35).map((book) => (
-                <div className="p-2 md:p-5" key={book.id}>
-                  <BookCardUI
-                    book={book}
-                    bookCount={bookCount}
-                    handleBookCount={handleBookCount}
-                    handleBookCart={handleBookCart}
-                  />
+                <div className=" p-2" key={book.id}>
+                  <BookCardUI book={book} />
                 </div>
               ))
             ) : (
@@ -160,25 +145,20 @@ const HomePage = () => {
         </div>
       </section>
       <section id="bestSeller">
-        <h3 className="mt-24 text-center font-bold font-title text-secondary text-2xl ">
+        <h3 className="mt-20 text-center font-bold font-title text-secondary text-2xl ">
           Best <span className="text-primary">Seller Books</span>
         </h3>
-        <p className="mt-10 text-center font-sans text-secondary mb-8">
+        <p className="mt-10 text-center px-5 font-sans text-secondary mb-8">
           There are many books , but there are the best seller books
         </p>
 
-        <div className="w-2/3  lg:w-3/5 md:w-5/6 mx-auto mb-20  ">
+        <div className="w-4/5  lg:w-3/5 md:w-5/6 mx-auto mb-20  ">
           <Slider {...settings}>
             {/* <BookCardUI book={book} /> */}
             {response ? (
-              response.slice(4, 8).map((book) => (
-                <div className=" p-2 md:p-5" key={book.id}>
-                  <BookCardUI
-                    book={book}
-                    bookCount={bookCount}
-                    handleBookCount={handleBookCount}
-                    handleBookCart={handleBookCart}
-                  />
+              response.slice(9, 16).map((book) => (
+                <div className=" p-2" key={book.id}>
+                  <BookCardUI book={book} />
                 </div>
               ))
             ) : (
