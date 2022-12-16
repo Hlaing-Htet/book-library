@@ -14,7 +14,6 @@ const CheckOutPage = () => {
     handleBookCount,
     handleRemoveBookCount,
   } = useBookShopContext();
-  console.log(selectedBook);
 
   const total = selectedBook.reduce(
     (accumulator, currentValue) =>
@@ -25,6 +24,8 @@ const CheckOutPage = () => {
   const handleClick = () => {
     alert("Check Out Page is coming soon !!!! ");
   };
+  const discountPrice = (price, discount) =>
+    (price - (price * discount) / 100).toFixed(2);
 
   return (
     <motion.div
@@ -89,7 +90,11 @@ const CheckOutPage = () => {
               </button>
             </div>
             <p className=" col-span-1 text-end  p-3 md:text-xl text-secondary ">
-              {selectedItem.quantity} * ${selectedItem?.attributes?.price}
+              {selectedItem.quantity} * $
+              {discountPrice(
+                selectedItem?.attributes?.price,
+                selectedItem?.attributes?.discount
+              )}
             </p>
           </div>
         ))}

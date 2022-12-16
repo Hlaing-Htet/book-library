@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.svg";
 
 //icons
-import { BsPersonFill } from "react-icons/bs";
+
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 //hook
@@ -66,13 +66,6 @@ const NavBar = () => {
                 </span>
                 <button className=" text-text_color">
                   <FaShoppingCart className=" text-2xl" />
-                </button>
-              </NavLink>
-            </div>
-            <div className="indicator">
-              <NavLink to={"/profile"} className="h-6">
-                <button className=" text-text_color">
-                  <BsPersonFill className=" text-2xl" />
                 </button>
               </NavLink>
             </div>

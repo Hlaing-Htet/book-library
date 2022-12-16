@@ -10,7 +10,6 @@ import DetailsPage from "./pages/DetailsPage";
 import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/ShopPage";
 import SingleBookPage from "./pages/SingleBookPage";
-import ProfilePage from "./pages/ProfilePage";
 
 const App = () => {
   return (
@@ -31,7 +30,6 @@ const App = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/bookmark" element={<BookMarkPage />} />
         <Route path="/checkout" element={<CheckOutPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );
