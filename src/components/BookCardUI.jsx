@@ -87,6 +87,20 @@ const BookCardUI = ({ book: { attributes, id }, book }) => {
           <span className=" text-sm">discount</span>{" "}
           <span>{!discount ? 0 : discount}%</span>
         </div>
+        {isBookMark && (
+          <div className=" bg-primary absolute top-0 right-0 p-2">
+            <span className=" text-sm">
+              {markedBook.length === 0
+                ? "removed from bookmark"
+                : "added to bookmark"}
+            </span>{" "}
+          </div>
+        )}
+        {isBuy && (
+          <div className=" bg-primary absolute top-0 right-0 p-2">
+            <span className=" text-sm">ready to checkout</span>{" "}
+          </div>
+        )}
       </motion.div>
       <motion.div
         variants={variants}

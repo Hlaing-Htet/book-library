@@ -1,8 +1,12 @@
 import React from "react";
 import BookCardUI from "../components/BookCardUI";
 import { motion } from "framer-motion";
+import "./slick.css";
 
 import Img from "../assets/homepageimage.png";
+//icons
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 //Slider
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -15,42 +19,21 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        position: "absolute",
-        display: "block",
-        background: "black",
-        top: "50%",
-        right: "-9%",
-        borderRadius: "15px",
-        transform: "translateY(-50px)",
-      }}
-      onClick={onClick}
-    />
+    <div className={className} onClick={onClick}>
+      <GrNext className="  text-3xl" />
+    </div>
   );
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
+
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        position: "absolute",
-        display: "block",
-        background: "black",
-        top: "50%",
-        left: "-9%",
-        borderRadius: "15px",
-        transform: "translateY(-50px)",
-      }}
-      onClick={onClick}
-    />
+    <div className={className} onClick={onClick}>
+      <GrPrevious className="  text-3xl" />
+    </div>
   );
 }
 const HomePage = () => {
@@ -62,6 +45,8 @@ const HomePage = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     // initialSlide: 0,
