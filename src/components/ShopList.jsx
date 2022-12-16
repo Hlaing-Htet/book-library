@@ -34,7 +34,7 @@ const ShopList = () => {
         <input
           type="text"
           placeholder="Search book by title"
-          className="input input-bordered text-text_color input-primary w-full max-w-xs"
+          className="input input-bordered text-text_color input-primary w-2/3 md:w-full  max-w-xs"
           value={searchBook}
           onChange={handleSearch}
         />

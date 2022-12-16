@@ -32,7 +32,7 @@ const ShopPage = () => {
                       : " text-text_color block text-center text-sm md:text-md"
                   }
                 >
-                  all
+                  All
                 </NavLink>
               </div>
               {response.map((category) => (
