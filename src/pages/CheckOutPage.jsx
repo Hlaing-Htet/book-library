@@ -107,12 +107,35 @@ const CheckOutPage = () => {
               </p>
             </div>
             <div className="md:w-2/3 lg:w-1/2 p-3 mx-auto flex  justify-end">
-              <button
-                onClick={handleClick}
-                className="btn btn-primary md:my-10"
-              >
+              {/* The button to open modal */}
+              <label htmlFor="my-modal-3" className="btn btn-primary">
                 Check Out
-              </button>
+              </label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+              <div className="modal ">
+                <div className="modal-box relative ">
+                  <label
+                    htmlFor="my-modal-3"
+                    className="btn btn-sm btn-circle btn-outline btn-secondary absolute right-2 top-2 "
+                  >
+                    ✕
+                  </label>
+                  <h3 className="text-lg font-bold text-text_color">
+                    Check Out
+                  </h3>
+                  <p className="py-4 text-text_color opacity-70">
+                    Your order is processing. Be ready to receive your products.
+                  </p>
+                  <Link to={"/shop"}>
+                    <button className=" btn btn-sm btn-primary btn-outline">
+                      {" "}
+                      shop more
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </>
         )}
