@@ -39,7 +39,7 @@ const ShopList = () => {
           onChange={handleSearch}
         />
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mx-0 md:m-5  ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mx-5 ">
         {searchingBook.length > 0 ? (
           searchingBook.map((book) => <BookCardUI key={book.id} book={book} />)
         ) : (

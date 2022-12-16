@@ -26,12 +26,12 @@ const AllBookList = () => {
         <input
           type="text"
           placeholder="Search book by title"
-          className="input input-bordered text-text_color input-primary w-full max-w-xs"
+          className="input input-bordered text-text_color input-primary w-2/3 md:w-full max-w-xs"
           value={searchBook}
           onChange={handleSearch}
         />
       </div>
-      <div className=" grid grid-cols-4 gap-5 mx-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mx-5">
         {searchingBook.length > 0 ? (
           searchingBook.map((book) => <BookCardUI key={book.id} book={book} />)
         ) : (
