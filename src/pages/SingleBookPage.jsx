@@ -65,10 +65,10 @@ const SingleBookPage = () => {
       animate={{ opacity: 1 }}
       className=" h-screen overflow-auto md:overflow-hidden  pt-16"
     >
-      <div className="h-full bg-background_color border-b p-5">
+      <div className="min-h-full md:h-full bg-background_color md:border-b p-5">
         <div className="h-full  grid grid-cols-1   md:grid-cols-4 gap-5">
           <div className=" col-span-1 md:col-span-3 h-full">
-            <div className=" h-full grid grid-cols-3 bg-background_gray_color p-5">
+            <div className=" h-full grid grid-cols-3 md:bg-background_gray_color md:p-5">
               <div className=" col-span-3 md:col-span-1 flex flex-col justify-center ">
                 <img
                   src={imgLink}
