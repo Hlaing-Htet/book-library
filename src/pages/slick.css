@@ -1,7 +1,5 @@
 .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
-  width: 57px;
-  height: 104px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,4 +16,14 @@
 .slick-prev::before,
 .slick-next::before {
   display: none;
+}
+@media screen and (max-width: 400px) {
+  .slick-arrow.slick-prev {
+    left: -20px;
+    top: 45%;
+  }
+  .slick-arrow.slick-next {
+    right: -20px;
+    top: 45%;
+  }
 }
