@@ -77,7 +77,7 @@ const HomePage = () => {
       className=" bg-background_color overflow-auto max-w-full overflow-x-hidden h-screen pt-16"
     >
       <div className="hero min-h-2/3   bg-background_gray_color ">
-        <div className="hero-content p-0 px-3 flex-col md:flex-row mt-24 md:mt-0 text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
+        <div className="hero-content p-0 md:px-3 flex-col md:flex-row mt-24 md:mt-0 text-text_color  lg:w-10/12 md:min-w-4/5 justify-between ">
           <motion.div
             initial={{ x: "-100vw" }}
             animate={{ x: 0 }}
