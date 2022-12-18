@@ -16,7 +16,7 @@ const Footer = () => {
 				<figure className="flex justify-center w-full">
 					<img src={Img} className="w-20 m-3" />
 				</figure>
-				<p className="font-sans text-lg text-center text-text_color">
+				<p className="font-sans text-lg text-center text-text_color opacity-70">
 					Here we present an online platfrom the provide an extensive library of
 					books <br />
 					in digital format for free to every one around the world.
