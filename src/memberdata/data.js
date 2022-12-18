@@ -1,70 +1,68 @@
-import Img from "../assets/man.jpg";
+import Img1 from "../assets/img1.jfif";
+import Img2 from "../assets/avatar8.jpg";
+import Img3 from "../assets/avatar4.jpg";
+import Img4 from "../assets/avatar7.jpg";
+import Img5 from "../assets/avatar5.jpg";
+import Img6 from "../assets/imag.png";
 
-export const memberInfodata = [
-  {
-    id: 1,
-    img: Img,
-    name: "Ngwe Thawtar Tun",
-    age: "24",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+export const memberInfodata = [{
+        id: 1,
+        img: Img1,
+        name: "Ngwe Thawtar",
+        age: "24",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
-    email: " nwaynway288781@gmail.com",
-    work: "Online Shop,Accounting",
-  },
-  {
-    id: 2,
-    img: Img,
-    name: "Wendy Aike Maung",
-    age: "24",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+        email: " nwaynway288781@gmail.com",
+        work: "Online Shop,Accounting",
+    },
+    {
+        id: 2,
+        img: Img2,
+        name: "Wendy",
+        age: "24",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
-    email: " nwaynway288781@gmail.com",
-    work: "Online Shop,Accounting",
-  },
-  {
-    id: 3,
-    img: Img,
-    name: "Mya Pwint",
-    age: "24",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+        email: " nwaynway288781@gmail.com",
+        work: "Online Shop,Accounting",
+    },
+    {
+        id: 3,
+        img: Img3,
+        name: "Mya Pwint",
+        age: "24",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
-    email: " nwaynway288781@gmail.com",
-    work: "Online Shop,Accounting",
-  },
-  {
-    id: 4,
-    img: Img,
-    name: "Aung Khant Soe",
-    age: "24",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+        email: " nwaynway288781@gmail.com",
+        work: "Online Shop,Accounting",
+    },
+    {
+        id: 4,
+        img: Img4,
+        name: "Aung Khant",
+        age: "24",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
-    email: " nwaynway288781@gmail.com",
-    work: "Online Shop,Accounting",
-  },
-  {
-    id: 5,
-    img: Img,
-    name: "Hlaing Htet",
-    age: "24",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+        email: " nwaynway288781@gmail.com",
+        work: "Online Shop,Accounting",
+    },
+    {
+        id: 5,
+        img: Img5,
+        name: "Hlaing Htet",
+        age: "24",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
-    email: " nwaynway288781@gmail.com",
-    work: "Online Shop,Accounting",
-  },
-  {
-    id: 6,
-    img: Img,
-    name: "Min Htet Aung",
-    age: "24",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
+        email: " nwaynway288781@gmail.com",
+        work: "Online Shop,Accounting",
+    },
+    {
+        id: 6,
+        img: Img6,
+        name: "Min Htet",
+        age: "24",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
-    email: " nwaynway288781@gmail.com",
-    work: "Online Shop,Accounting",
-  },
+        email: " nwaynway288781@gmail.com",
+        work: "Online Shop,Accounting",
+    },
 ];
