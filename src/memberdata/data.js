@@ -10,7 +10,7 @@ export const memberInfodata = [{
         img: Img1,
         name: "Ngwe Thawtar",
         age: "24",
-        description: "Expert fronted web developer with 3 years' experience. Skilled in establishing and expanding the online presence of developing and executing online marketing campaigns through bulk emails or shopping apps and increasing social media outreach by hiring vloggers and influencers. Improved customer acquisition and sales by 47% by reevaluating SEO and SMO strategies, updating the existing UX best practices and PPC affiliate developing integration.",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
         email: " nwaynway288781@gmail.com",
         work: "Online Shop,Accounting",
@@ -20,7 +20,7 @@ export const memberInfodata = [{
         img: Img2,
         name: "Wendy",
         age: "24",
-        description: "Expert fronted web developer with 3 years' experience. Skilled in establishing and expanding the online presence of developing and executing online marketing campaigns through bulk emails or shopping apps and increasing social media outreach by hiring vloggers and influencers. Improved customer acquisition and sales by 47% by reevaluating SEO and SMO strategies, updating the existing UX best practices and PPC affiliate developing integration.",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
         email: " nwaynway288781@gmail.com",
         work: "Online Shop,Accounting",
@@ -40,7 +40,7 @@ export const memberInfodata = [{
         img: Img4,
         name: "Aung Khant",
         age: "24",
-        description: "Expert fronted web developer with 3 years' experience. Skilled in establishing and expanding the online presence of developing and executing online marketing campaigns through bulk emails or shopping apps and increasing social media outreach by hiring vloggers and influencers. Improved customer acquisition and sales by 47% by reevaluating SEO and SMO strategies, updating the existing UX best practices and PPC affiliate developing integration.",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
         email: " nwaynway288781@gmail.com",
         work: "Online Shop,Accounting",
@@ -50,7 +50,7 @@ export const memberInfodata = [{
         img: Img5,
         name: "Hlaing Htet",
         age: "24",
-        description: "Expert fronted web developer with 3 years' experience. Skilled in establishing and expanding the online presence of developing and executing online marketing campaigns through bulk emails or shopping apps and increasing social media outreach by hiring vloggers and influencers. Improved customer acquisition and sales by 47% by reevaluating SEO and SMO strategies, updating the existing UX best practices and PPC affiliate developing integration.",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
         email: " nwaynway288781@gmail.com",
         work: "Online Shop,Accounting",
@@ -60,7 +60,7 @@ export const memberInfodata = [{
         img: Img6,
         name: "Min Htet",
         age: "24",
-        description: "Expert fronted web developer with 3 years' experience. Skilled in establishing and expanding the online presence of developing and executing online marketing campaigns through bulk emails or shopping apps and increasing social media outreach by hiring vloggers and influencers. Improved customer acquisition and sales by 47% by reevaluating SEO and SMO strategies, updating the existing UX best practices and PPC affiliate developing integration.",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati voluptatibus incidunt id modi culpa beatae repellendus, ad consequatur quas debitis laudantium placeat quos dolorum fugiat fuga? Facilis accusantium amet dolorum.",
 
         email: " nwaynway288781@gmail.com",
         work: "Online Shop,Accounting",

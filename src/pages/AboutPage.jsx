@@ -37,7 +37,7 @@ const AboutPage = () => {
 					to readers. So, come and join our book library today!
 				</p>
 			</div>
-			<h1 className="text-center font-title font-bold text-2xl text-primary mt-40 md:mt-10 ">
+			<h1 className="text-center font-title font-bold text-2xl text-primary mt-10">
 				Project Members
 			</h1>
 			<Members />
