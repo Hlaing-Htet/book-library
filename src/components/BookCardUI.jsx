@@ -13,7 +13,7 @@ import { useBookShopContext } from "../hooks/useBookShopContext";
 const variants = {
   hover: {
     x: 0,
-    scale: [1, 1.1, 1],
+
     opacity: [0.5, 1],
   },
   initial: {

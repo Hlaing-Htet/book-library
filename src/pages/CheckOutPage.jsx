@@ -58,18 +58,20 @@ const CheckOutPage = () => {
         {selectedBook.map((selectedItem) => (
           <div
             key={selectedItem?.id}
-            className=" md:w-2/3 lg:w-1/2 mx-auto grid grid-cols-3 items-center mb-20 md:mb-24 md:p-5 lg:p-8 justify-between border relative"
+            className=" md:w-2/3 lg:w-1/2 mx-auto grid grid-cols-3 items-center mb-5  md:p-5 lg:p-8 justify-between border relative"
           >
-            <figure className=" bottom-full left-1/2 -translate-x-1/2 md:translate-x-0  md:-top-20 md:left-2  absolute">
-              <img
-                src={`https://book-library-backend-production.up.railway.app${selectedItem.attributes.image.data[0].attributes.url}`}
-                // src = `http://localhost:1337${data[0].attributes.url}`
-                alt="a"
-                className="h-16 md:h-24 w-16 md:w-24 object-fill"
-              />
-            </figure>
-            <div className=" col-span-1 text-text_color md:text-xl p-3">
-              {selectedItem.attributes.title}
+            <div>
+              <figure className="col-span-1">
+                <img
+                  src={`https://book-library-backend-production.up.railway.app${selectedItem.attributes.image.data[0].attributes.url}`}
+                  // src = `http://localhost:1337${data[0].attributes.url}`
+                  alt="a"
+                  className="h-24 object-fill mx-auto mt-3"
+                />
+              </figure>
+              <div className=" text-center text-text_color md:text-xl p-3">
+                {selectedItem.attributes.title}
+              </div>
             </div>
             <div className=" col-span-1 p-3 flex gap-5 justify-center">
               <button
